@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="Receita" load_steps=2 format=3 uid="uid://cehsqxsbw6mct"]
+
+[ext_resource type="Script" path="res://receita.gd" id="1_cycm3"]
+
+[resource]
+script = ExtResource("1_cycm3")
+nome = "Poção de Cura"
+ingredientes = Array[String](["Orangine", "Orangine"])
+tempo_preparo = 10.0

@@ -27,8 +27,8 @@ func _on_planta_3_instanciar_fruta(nome, posicao):
 func _on_planta_4_instanciar_fruta(nome, posicao):
 	planta_instancia_fruta(nome, posicao)
 
-func _on_caldeirao_instanciar_pocao(nome, posicao):
+func _on_caldeirao_instanciar_pocao(pocao, posicao):
 	var nova_pocao : Pocao = POCAO.instantiate()
 	get_tree().current_scene.add_child(nova_pocao)
 	nova_pocao.global_position = posicao
-	nova_pocao.setup(nome)
+	nova_pocao.setup(pocao.nome)

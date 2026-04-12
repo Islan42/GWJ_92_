@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://b7qmplxcfpegc"]
 
-[ext_resource type="Script" path="res://Receitas.gd" id="1_w2j7s"]
+[ext_resource type="Script" path="res://gui/Receitas.gd" id="1_w2j7s"]
 
 [node name="Receitas" type="Control"]
 layout_mode = 3

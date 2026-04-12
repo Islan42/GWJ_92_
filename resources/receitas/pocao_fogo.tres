@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="Receita" load_steps=2 format=3 uid="uid://df0u3i8lr42ei"]
+
+[ext_resource type="Script" path="res://receita.gd" id="1_s82e6"]
+
+[resource]
+script = ExtResource("1_s82e6")
+nome = "Poção do Fogo"
+ingredientes = Array[String](["Orangine", "Orangine", "Redrang"])
+tempo_preparo = 12.0

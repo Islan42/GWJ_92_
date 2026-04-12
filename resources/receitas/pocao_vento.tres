@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="Receita" load_steps=2 format=3 uid="uid://dw2nn1ssvyrfv"]
+
+[ext_resource type="Script" path="res://receita.gd" id="1_7usen"]
+
+[resource]
+script = ExtResource("1_7usen")
+nome = "Poção do Vento"
+ingredientes = Array[String](["Purplezite", "Purplezite", "Greenet"])
+tempo_preparo = 15.0

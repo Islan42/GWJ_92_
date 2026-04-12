@@ -1,20 +1,15 @@
 extends Area2D
 class_name Caldeirao
 
-var receitas : Dictionary = {
-	"Receita 1": {"ingredientes": ["Orangine", "Orangine", "Purplezite"], "tempo": 15},
-	"Receita 2": {"ingredientes": ["Orangine", "Purplezite", "Purplezite"], "tempo": 15},
-	"Poção de Mana": {"ingredientes": ["Purplezite", "Purplezite"], "tempo": 10},
-	"Poção de Cura": {"ingredientes": ["Orangine", "Orangine"], "tempo": 10}
-}
+signal instanciar_pocao(pocao, posicao)
 
-signal instanciar_pocao(nome, posicao)
+@export var receitas : Array[Receita]
 
 @onready var tempo_cozimento_timer : Timer = $TempoCozimento
 @onready var barra_progresso : ProgressBar = $ProgressBar
 
 var lista_ingredientes : Array
-var proxima_pocao : String = ""
+var proxima_pocao : Receita
 var tempo_decorrido : float = 0
 var tempo_total : float = 0
 
@@ -27,15 +22,16 @@ func _process(delta):
 func add_ingrediente(ingrediente : Object):
 	lista_ingredientes.append(ingrediente)
 	print(lista_ingredientes)
-	proxima_pocao = checar_ingredientes()
+	checar_ingredientes()
 	preparar_pocao()
 
-#func checar_ingredientes(receitas : Dictionary):
-func checar_ingredientes() -> String:
-	var proxima_pocao : String = ""
+func checar_ingredientes():
+	#proxima_pocao = null
 	for receita in receitas:
+		print("teste")
+		print(receita)
 		var copia_ingredientes_caldeirao : Array = lista_ingredientes.duplicate()
-		var copia_ingredientes_receita : Array = receitas[receita]["ingredientes"].duplicate()
+		var copia_ingredientes_receita : Array = receita.ingredientes.duplicate()
 		
 		for ingrediente_caldeirao in copia_ingredientes_caldeirao:
 			if copia_ingredientes_receita.has(ingrediente_caldeirao.nome):
@@ -43,15 +39,14 @@ func checar_ingredientes() -> String:
 		
 		if copia_ingredientes_receita.is_empty():
 			print("Possui todos os requisitos")
-			print(receitas[receita])
+			print(receita)
 			proxima_pocao = receita
-			break
-	return proxima_pocao
+			return
 
 func preparar_pocao():
-	if proxima_pocao != "":
+	if proxima_pocao != null:
 		tempo_decorrido = 0
-		tempo_total = receitas[proxima_pocao]["tempo"]
+		tempo_total = proxima_pocao.tempo_preparo
 		tempo_cozimento_timer.start(tempo_total)
 		barra_progresso.visible = true
 
@@ -63,7 +58,7 @@ func _on_tempo_cozimento_timeout():
 	tempo_total = 0
 	barra_progresso.value = 0
 	barra_progresso.visible = false
-	proxima_pocao = ""
+	proxima_pocao = null
 	esvaziar_caldeirao()
 
 func esvaziar_caldeirao():
