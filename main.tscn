@@ -34,8 +34,28 @@ position = Vector2(544, 224)
 
 [node name="Receitas" parent="CanvasLayer" instance=ExtResource("5_g1q74")]
 
+[node name="Planta5" parent="." instance=ExtResource("3_wo6hg")]
+position = Vector2(288, -32)
+tipo_frutos = "Orangine"
+
+[node name="Planta6" parent="." instance=ExtResource("3_wo6hg")]
+position = Vector2(352, -32)
+tipo_frutos = "Orangine"
+
+[node name="Planta7" parent="." instance=ExtResource("3_wo6hg")]
+position = Vector2(480, -32)
+tipo_frutos = "Purplezite"
+
+[node name="Planta8" parent="." instance=ExtResource("3_wo6hg")]
+position = Vector2(544, -32)
+tipo_frutos = "Purplezite"
+
 [connection signal="instanciar_fruta" from="Planta" to="." method="_on_planta_instanciar_fruta"]
 [connection signal="instanciar_fruta" from="Planta2" to="." method="_on_planta_2_instanciar_fruta"]
 [connection signal="instanciar_fruta" from="Planta3" to="." method="_on_planta_3_instanciar_fruta"]
 [connection signal="instanciar_fruta" from="Planta4" to="." method="_on_planta_4_instanciar_fruta"]
 [connection signal="instanciar_pocao" from="Caldeirao" to="." method="_on_caldeirao_instanciar_pocao"]
+[connection signal="instanciar_fruta" from="Planta5" to="." method="_on_planta_5_instanciar_fruta"]
+[connection signal="instanciar_fruta" from="Planta6" to="." method="_on_planta_6_instanciar_fruta"]
+[connection signal="instanciar_fruta" from="Planta7" to="." method="_on_planta_7_instanciar_fruta"]
+[connection signal="instanciar_fruta" from="Planta8" to="." method="_on_planta_8_instanciar_fruta"]

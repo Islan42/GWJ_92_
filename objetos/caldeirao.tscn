@@ -13,7 +13,7 @@ size = Vector2(64, 64)
 
 [node name="Caldeirao" type="Area2D"]
 script = ExtResource("1_euj65")
-receitas = Array[Resource("res://receita.gd")]([ExtResource("2_t1522"), ExtResource("3_jlxvg"), ExtResource("4_xpqtf"), ExtResource("5_388df"), ExtResource("6_b7w5r")])
+receitas = Array[Resource("res://receita.gd")]([ExtResource("6_b7w5r"), ExtResource("4_xpqtf"), ExtResource("5_388df"), ExtResource("3_jlxvg"), ExtResource("2_t1522")])
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_eau5n")

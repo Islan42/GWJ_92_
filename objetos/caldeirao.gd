@@ -28,8 +28,6 @@ func add_ingrediente(ingrediente : Object):
 func checar_ingredientes():
 	#proxima_pocao = null
 	for receita in receitas:
-		print("teste")
-		print(receita)
 		var copia_ingredientes_caldeirao : Array = lista_ingredientes.duplicate()
 		var copia_ingredientes_receita : Array = receita.ingredientes.duplicate()
 		
@@ -39,7 +37,6 @@ func checar_ingredientes():
 		
 		if copia_ingredientes_receita.is_empty():
 			print("Possui todos os requisitos")
-			print(receita)
 			proxima_pocao = receita
 			return
 
@@ -52,14 +49,16 @@ func preparar_pocao():
 
 
 func _on_tempo_cozimento_timeout():
-	instanciar_pocao.emit(proxima_pocao, global_position)
-	print("Emitiu sinal")
-	tempo_decorrido = 0
-	tempo_total = 0
-	barra_progresso.value = 0
-	barra_progresso.visible = false
-	proxima_pocao = null
-	esvaziar_caldeirao()
+	if proxima_pocao != null:
+		print(proxima_pocao.nome)
+		instanciar_pocao.emit(proxima_pocao, global_position)
+		print("Emitiu sinal")
+		tempo_decorrido = 0
+		tempo_total = 0
+		barra_progresso.value = 0
+		barra_progresso.visible = false
+		proxima_pocao = null
+		esvaziar_caldeirao()
 
 func esvaziar_caldeirao():
 	for item in lista_ingredientes:

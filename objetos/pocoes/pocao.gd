@@ -9,10 +9,10 @@ class_name Pocao
 var nome
 var tipos_pocao : Dictionary = {
 	"Poção de Cura": ["Curar", "Nada", "pocao_de_cura"],
-	"Poção de Mana": ["Restaurar mana", "Nada", "pocao_de_cura"],
-	"Poção do Fogo": ["Aumenta o dano em 1.5", "Explode", "pocao_de_cura"],
-	"Poção do Vento": ["Aumenta a velocidade de movimento", "Inimigos ficam lentos", "pocao_de_cura"],
-	"Poção do Fogo Fogo": ["Aumenta o dano em 2.0 e projétil explode", "Pega fogo na área", "pocao_de_cura"]
+	"Poção de Mana": ["Restaurar mana", "Nada", "pocao_de_mana"],
+	"Poção do Vento": ["Aumenta a velocidade de movimento", "Inimigos ficam lentos", "pocao_do_vento"],
+	"Poção do Fogo": ["Aumenta o dano em 1.5", "Explode", "pocao_do_fogo"],
+	"Poção do Fogo Fogo": ["Aumenta o dano em 2.0 e projétil explode", "Pega fogo na área", "pocao_do_fogo_fogo"]
 }
 
 func setup(nome_pocao:String = "random"):

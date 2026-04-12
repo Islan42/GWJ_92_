@@ -5,5 +5,5 @@
 [resource]
 script = ExtResource("1_7usen")
 nome = "Poção do Vento"
-ingredientes = Array[String](["Purplezite", "Purplezite", "Greenet"])
+ingredientes = Array[String](["Purplezite", "Purplezite", "Purplezite"])
 tempo_preparo = 15.0

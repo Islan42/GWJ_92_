@@ -2,6 +2,7 @@ extends Area2D
 class_name Planta
 
 @export var cooldown : float = 10.0
+@export var tipo_frutos : String = "random"
 
 signal instanciar_fruta(nome, posicao)
 
@@ -14,7 +15,7 @@ func colher():
 	sprite.modulate = Color("ffffff", 0.3) #Mudar SpriteAnimado para o original
 	cooldown_timer.start(cooldown)
 	
-	instanciar_fruta.emit("random",global_position)
+	instanciar_fruta.emit(tipo_frutos,global_position)
 
 func _on_cooldown_timeout():
 	colisao.disabled = false

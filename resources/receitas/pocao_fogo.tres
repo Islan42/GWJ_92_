@@ -5,5 +5,5 @@
 [resource]
 script = ExtResource("1_s82e6")
 nome = "Poção do Fogo"
-ingredientes = Array[String](["Orangine", "Orangine", "Redrang"])
+ingredientes = Array[String](["Orangine", "Orangine", "Orangine"])
 tempo_preparo = 12.0
