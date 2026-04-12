@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://dxe0nktb72bpe"]
+
+[ext_resource type="Script" path="res://objetos/planta.gd" id="1_5wne6"]
+[ext_resource type="Texture2D" uid="uid://bnu81vfgjw1wi" path="res://objetos/planta.png" id="1_a5qdy"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7e7kq"]
+size = Vector2(64, 64)
+
+[node name="Planta" type="Area2D"]
+script = ExtResource("1_5wne6")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_7e7kq")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_a5qdy")
+
+[node name="Cooldown" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="timeout" from="Cooldown" to="." method="_on_cooldown_timeout"]

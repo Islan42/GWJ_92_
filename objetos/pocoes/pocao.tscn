@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://dmn11ph6ptb12"]
+
+[ext_resource type="Script" path="res://objetos/pocoes/pocao.gd" id="1_21qib"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_q15j3"]
+size = Vector2(64, 64)
+
+[node name="Pocao" type="Area2D"]
+script = ExtResource("1_21qib")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_q15j3")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]

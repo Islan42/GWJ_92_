@@ -1,0 +1,7 @@
+[gd_scene load_steps=3 format=3 uid="uid://bqypjrcd47b4w"]
+
+[ext_resource type="PackedScene" uid="uid://cggd45xotundv" path="res://objetos/ingredientes/ingrediente.tscn" id="1_l7ujw"]
+[ext_resource type="Script" path="res://objetos/ingredientes/Fruta.gd" id="2_n627l"]
+
+[node name="Fruta" instance=ExtResource("1_l7ujw")]
+script = ExtResource("2_n627l")

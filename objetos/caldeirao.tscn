@@ -1,0 +1,30 @@
+[gd_scene load_steps=4 format=3 uid="uid://bt338mse2bg1x"]
+
+[ext_resource type="Script" path="res://objetos/caldeirao.gd" id="1_euj65"]
+[ext_resource type="Texture2D" uid="uid://bscfmthsb4xqk" path="res://objetos/caldeirao.png" id="1_ie7xy"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_eau5n"]
+size = Vector2(64, 64)
+
+[node name="Caldeirao" type="Area2D"]
+script = ExtResource("1_euj65")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_eau5n")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_ie7xy")
+
+[node name="TempoCozimento" type="Timer" parent="."]
+one_shot = true
+
+[node name="ProgressBar" type="ProgressBar" parent="."]
+visible = false
+offset_left = 40.0
+offset_top = 32.0
+offset_right = 104.0
+offset_bottom = 40.0
+rotation = 4.71239
+show_percentage = false
+
+[connection signal="timeout" from="TempoCozimento" to="." method="_on_tempo_cozimento_timeout"]
