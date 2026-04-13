@@ -4,7 +4,7 @@ class_name Fruta
 @onready var sprite : Sprite2D = $Sprite2D
 @onready var colisao : CollisionShape2D = $CollisionShape2D
 
-var tipos_frutas : Array = ["Orangine", "Purplezite"]
+var tipos_frutas : Array = ["Orangine", "Purplezite", "Greenet", "Redarang_2"]
 
 func setup(tipo_fruta:String = "random"):
 	if tipo_fruta == "random":
