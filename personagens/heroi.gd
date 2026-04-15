@@ -17,6 +17,7 @@ func _ready():
 	posicao_alvo = position
 	direcao_olhar = Vector2.RIGHT
 	raycast.target_position = Vector2.RIGHT * 64
+	animacao.play("normal_idle_frente")
 
 func _process(delta):
 	if position.is_equal_approx(posicao_alvo):
@@ -24,9 +25,10 @@ func _process(delta):
 			if Input.is_action_just_pressed("acao"):
 				agindo = true
 				animacao.play("acao")
+			elif Input.is_action_just_pressed("levantar_item"):
 				if raycast.is_colliding():
 					var objeto = raycast.get_collider()
-					if objeto is Planta:
+					if objeto is Planta: # SE DER TEMPO, TIRAR QUANDO ADICIONAR O ATAQUE
 						objeto.colher()
 					elif objeto is Ingrediente and not levantando_objeto:
 						levantando_objeto = true
@@ -47,12 +49,12 @@ func _process(delta):
 						remove_child(objeto_levantado)
 						objeto.add_child(objeto_levantado)
 						levantando_objeto = false
-			elif Input.is_action_just_pressed("largar_item") and levantando_objeto:
-				largar_item()
-				
+				if levantando_objeto:
+						largar_item()
+		
 		
 		direcao = Vector2.ZERO
-		
+		# is action just pressed + buffer
 		if Input.is_action_pressed("mover_esquerda"):
 			direcao = Vector2.LEFT
 		elif Input.is_action_pressed("mover_direita"):
@@ -72,18 +74,33 @@ func _process(delta):
 				raycast.target_position = direcao_olhar * 64
 				raycast.force_raycast_update()
 				
-				if direcao_olhar.x > 0:
-					animacao.rotation = PI/2
-				elif direcao_olhar.x < 0:
-					animacao.rotation = -1 * PI/2
-				elif direcao_olhar.y > 0:
-					animacao.rotation = PI
-				elif direcao_olhar.y < 0:
-					animacao.rotation = 0
+				#if direcao_olhar.x > 0:
+				#	animacao.rotation = PI/2
+				#elif direcao_olhar.x < 0:
+				#	animacao.rotation = -1 * PI/2
+				#elif direcao_olhar.y > 0:
+				#	animacao.rotation = PI
+				#elif direcao_olhar.y < 0:
+				#	animacao.rotation = 0
 		
 	else:
 		position = position.move_toward(posicao_alvo, 64 * velocidade * delta)
 		#print(position, posicao_alvo)
+		var nome_animacao = "normal_"
+		if levantando_objeto:
+			nome_animacao = "carregar_"
+		match direcao_olhar:
+			Vector2(0,1):
+				nome_animacao += "andar_frente"
+			Vector2(0,-1):
+				nome_animacao += "andar_costas"
+			Vector2(-1,0):
+				nome_animacao += "andar_lado"
+				animacao.flip_h = true
+			Vector2(1,0):
+				nome_animacao += "andar_lado"
+				animacao.flip_h = false
+		animacao.play(nome_animacao)
 
 func largar_item():
 	if not raycast.is_colliding():
