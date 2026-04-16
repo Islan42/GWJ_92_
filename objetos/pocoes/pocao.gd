@@ -8,12 +8,14 @@ class_name Pocao
 
 var nome
 var tipos_pocao : Dictionary = {
-	"Poção de Cura": ["Curar", "Nada", "pocao_de_cura"],
-	"Poção de Mana": ["Restaurar mana", "Nada", "pocao_de_mana"],
-	"Poção do Vento": ["Aumenta a velocidade de movimento", "Inimigos ficam lentos", "pocao_do_vento"],
-	"Poção do Fogo": ["Aumenta o dano em 1.5", "Explode", "pocao_do_fogo"],
-	"Poção do Fogo Fogo": ["Aumenta o dano em 2.0 e projétil explode", "Pega fogo na área", "pocao_do_fogo_fogo"]
+	"Poção de Cura": ["Curar", "Nada", "CURA"],
+	"Poção de Mana": ["Restaurar mana", "Nada", "MANA"],
+	"Poção do Vento": ["Aumenta a velocidade de movimento", "Inimigos ficam lentos", "VENTO"],
+	"Poção do Fogo": ["Aumenta o dano em 1.5", "Explode", "FOGO"],
+	"Poção do Fogo Fogo": ["Aumenta o dano em 2.0 e projétil explode", "Pega fogo na área", "FOGOFOGO"]
 }
+
+enum sprites_pocoes {CURA, MANA, VENTO, FOGO, FOGOFOGO}
 
 func _ready():
 	add_to_group("carregavel")
@@ -25,7 +27,7 @@ func setup(nome_pocao:String = "random"):
 		nome = chaves[rng]
 	else:
 		nome = nome_pocao
-	sprite.texture = load("res://objetos/pocoes/%s.png" % [tipos_pocao[nome][2]])
+	sprite.frame = sprites_pocoes[tipos_pocao[nome][2]] 
 	
 func levantar():
 	colisao.disabled = true

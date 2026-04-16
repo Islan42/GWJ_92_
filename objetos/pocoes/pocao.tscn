@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://dmn11ph6ptb12"]
+[gd_scene load_steps=4 format=3 uid="uid://dmn11ph6ptb12"]
 
 [ext_resource type="Script" path="res://objetos/pocoes/pocao.gd" id="1_21qib"]
+[ext_resource type="Texture2D" uid="uid://cvjlo2g257pce" path="res://objetos/pocoes/pocoes.png" id="2_csdgi"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_q15j3"]
 size = Vector2(64, 64)
@@ -12,3 +13,7 @@ script = ExtResource("1_21qib")
 shape = SubResource("RectangleShape2D_q15j3")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(3, 3)
+texture = ExtResource("2_csdgi")
+hframes = 5
+frame = 4

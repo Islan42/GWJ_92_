@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bhjs75xooxool"
-path="res://.godot/imported/pocao_do_fogo.png-692b80072100711f3a3f96f13a21b19f.ctex"
+uid="uid://cvjlo2g257pce"
+path="res://.godot/imported/pocoes.png-c83579001e915505569fdf00416aa743.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://objetos/pocoes/pocao_do_fogo.png"
-dest_files=["res://.godot/imported/pocao_do_fogo.png-692b80072100711f3a3f96f13a21b19f.ctex"]
+source_file="res://objetos/pocoes/pocoes.png"
+dest_files=["res://.godot/imported/pocoes.png-c83579001e915505569fdf00416aa743.ctex"]
 
 [params]
 
