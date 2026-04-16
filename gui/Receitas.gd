@@ -12,7 +12,7 @@ var receitas : Dictionary = {
 var texto = ""
 
 func _unhandled_input(event):
-	if event.is_action_released("mostrar_receitas"):
+	if event.is_action_released("ui_mostrar_receitas"):
 		alternar_visibilidade()
 
 func alternar_visibilidade():

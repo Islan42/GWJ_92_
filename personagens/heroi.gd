@@ -9,51 +9,55 @@ var direcao : Vector2
 var posicao_alvo : Vector2
 var direcao_olhar : Vector2
 var agindo : bool = false
-var levantando_objeto : bool = false
-var objeto_levantado : Object
+var tempo_parado : float = 0
+var carregando_objeto : bool = false
+var objeto_carregado : Object
 
 func _ready():
 	position = Vector2(32,32)
 	posicao_alvo = position
 	direcao_olhar = Vector2.RIGHT
 	raycast.target_position = Vector2.RIGHT * 64
-	animacao.play("normal_idle_frente")
+	#animacao.play("normal_idle_frente")
 
 func _process(delta):
 	if position.is_equal_approx(posicao_alvo):
-		if not agindo:
-			if Input.is_action_just_pressed("acao"):
+		calcular_acao()
+		calcular_movimento()
+	else:
+		position = position.move_toward(posicao_alvo, 64 * velocidade * delta)
+	animar()
+
+func calcular_acao():
+	var objeto = null
+	if raycast.is_colliding():
+		objeto = raycast.get_collider()
+		
+	if not agindo:
+		if Input.is_action_just_pressed("acao"):
+			if not carregando_objeto:
 				agindo = true
-				animacao.play("acao")
-			elif Input.is_action_just_pressed("levantar_item"):
-				if raycast.is_colliding():
-					var objeto = raycast.get_collider()
-					if objeto is Planta: # SE DER TEMPO, TIRAR QUANDO ADICIONAR O ATAQUE
-						objeto.colher()
-					elif objeto is Ingrediente and not levantando_objeto:
-						levantando_objeto = true
-						objeto.levantar()
-						objeto.get_parent().remove_child(objeto)
-						add_child(objeto)
-						objeto.position = Vector2(0,-64)
-						objeto_levantado = objeto
-					elif objeto is Pocao and not levantando_objeto:
-						levantando_objeto = true
-						objeto.levantar()
-						objeto.get_parent().remove_child(objeto)
-						add_child(objeto)
-						objeto.position = Vector2(0,-64)
-						objeto_levantado = objeto
-					elif objeto is Caldeirao and levantando_objeto:
-						objeto.add_ingrediente(objeto_levantado)
-						remove_child(objeto_levantado)
-						objeto.add_child(objeto_levantado)
-						levantando_objeto = false
-				if levantando_objeto:
-						largar_item()
-		
-		
-		direcao = Vector2.ZERO
+			elif objeto is Caldeirao:
+				objeto.add_ingrediente(objeto_carregado)
+				remove_child(objeto_carregado)
+				objeto.add_child(objeto_carregado)
+				carregando_objeto = false
+		elif Input.is_action_just_pressed("carregar_item"):
+			if objeto is Planta: # SE DER TEMPO, TIRAR QUANDO ADICIONAR O ATAQUE
+				objeto.colher()
+			if carregando_objeto:
+				largar_item()
+			elif objeto and objeto.is_in_group("carregavel"):
+				carregando_objeto = true
+				objeto.levantar()
+				objeto.get_parent().remove_child(objeto)
+				add_child(objeto)
+				objeto.position = Vector2(0,-64)
+				objeto_carregado = objeto
+
+func calcular_movimento():
+	direcao = Vector2.ZERO
+	if not agindo:
 		# is action just pressed + buffer
 		if Input.is_action_pressed("mover_esquerda"):
 			direcao = Vector2.LEFT
@@ -63,54 +67,60 @@ func _process(delta):
 			direcao = Vector2.UP
 		elif Input.is_action_pressed("mover_baixo"):
 			direcao = Vector2.DOWN
-		
-		if direcao != Vector2.ZERO:
-			#print(raycast.is_colliding())
-			if direcao == direcao_olhar and not raycast.is_colliding():
-				posicao_alvo += direcao * 64
-			else:
-				#print(direcao_olhar)
-				direcao_olhar = direcao
-				raycast.target_position = direcao_olhar * 64
-				raycast.force_raycast_update()
-				
-				#if direcao_olhar.x > 0:
-				#	animacao.rotation = PI/2
-				#elif direcao_olhar.x < 0:
-				#	animacao.rotation = -1 * PI/2
-				#elif direcao_olhar.y > 0:
-				#	animacao.rotation = PI
-				#elif direcao_olhar.y < 0:
-				#	animacao.rotation = 0
-		
+	
+	if direcao != Vector2.ZERO:
+		#print(raycast.is_colliding())
+		if direcao == direcao_olhar and not raycast.is_colliding():
+			posicao_alvo += direcao * 64
+		else:
+			#print(direcao_olhar)
+			direcao_olhar = direcao
+			raycast.target_position = direcao_olhar * 64
+			raycast.force_raycast_update()
+
+func animar():
+	var nome_animacao : String = ""
+	animacao.flip_h = false
+	
+	if agindo:
+		nome_animacao = "ataque_"
 	else:
-		position = position.move_toward(posicao_alvo, 64 * velocidade * delta)
-		#print(position, posicao_alvo)
-		var nome_animacao = "normal_"
-		if levantando_objeto:
+		if carregando_objeto:
 			nome_animacao = "carregar_"
-		match direcao_olhar:
-			Vector2(0,1):
-				nome_animacao += "andar_frente"
-			Vector2(0,-1):
-				nome_animacao += "andar_costas"
-			Vector2(-1,0):
-				nome_animacao += "andar_lado"
-				animacao.flip_h = true
-			Vector2(1,0):
-				nome_animacao += "andar_lado"
-				animacao.flip_h = false
+		else:
+			nome_animacao = "normal_"
+		
+		if position.is_equal_approx(posicao_alvo):
+			tempo_parado += get_process_delta_time()
+			if tempo_parado > 0.1:
+				nome_animacao += "idle_"
+		else:
+			tempo_parado = 0
+			nome_animacao += "andar_"
+		
+	match direcao_olhar:
+		Vector2(0,1):
+			nome_animacao += "frente"
+		Vector2(0,-1):
+			nome_animacao += "costas"
+		Vector2(1,0):
+			nome_animacao += "lado"
+			animacao.flip_h = false
+		Vector2(-1,0):
+			nome_animacao += "lado"
+			animacao.flip_h = true
+	if animacao.animation != nome_animacao:
 		animacao.play(nome_animacao)
 
 func largar_item():
 	if not raycast.is_colliding():
-		levantando_objeto = false
-		remove_child(objeto_levantado)
-		get_tree().current_scene.add_child(objeto_levantado)
-		objeto_levantado.global_position = raycast.global_position + raycast.target_position
-		objeto_levantado.largar()
-		objeto_levantado = null
+		carregando_objeto = false
+		remove_child(objeto_carregado)
+		get_tree().current_scene.add_child(objeto_carregado)
+		objeto_carregado.global_position = raycast.global_position + raycast.target_position
+		objeto_carregado.largar()
+		objeto_carregado = null
 
 func _on_animated_sprite_2d_animation_finished():
-	if animacao.animation == "acao":
+	if animacao.animation.contains("ataque"):
 		agindo = false

@@ -15,6 +15,9 @@ var tipos_pocao : Dictionary = {
 	"Poção do Fogo Fogo": ["Aumenta o dano em 2.0 e projétil explode", "Pega fogo na área", "pocao_do_fogo_fogo"]
 }
 
+func _ready():
+	add_to_group("carregavel")
+
 func setup(nome_pocao:String = "random"):
 	if nome_pocao == "random":
 		var chaves = tipos_pocao.keys()
