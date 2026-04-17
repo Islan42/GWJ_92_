@@ -1,4 +1,4 @@
-[gd_scene load_steps=82 format=3 uid="uid://3r307sg2foex"]
+[gd_scene load_steps=83 format=3 uid="uid://3r307sg2foex"]
 
 [ext_resource type="Script" path="res://personagens/heroi.gd" id="1_y532s"]
 [ext_resource type="Texture2D" uid="uid://csx1j4dnxhhx4" path="res://personagens/heroi.png" id="2_j8bx2"]
@@ -628,14 +628,17 @@ animations = [{
 "speed": 2.0
 }]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_akag1"]
+size = Vector2(190, 60)
+
 [node name="Heroi" type="Area2D"]
 script = ExtResource("1_y532s")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-visible = false
 shape = SubResource("RectangleShape2D_vfhvs")
 
 [node name="RayCast2D" type="RayCast2D" parent="."]
+collision_mask = 6
 collide_with_areas = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
@@ -650,4 +653,13 @@ drag_horizontal_enabled = true
 drag_left_margin = 0.0
 editor_draw_drag_margin = true
 
+[node name="AreaAtaque" type="Area2D" parent="."]
+collision_layer = 8
+collision_mask = 6
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AreaAtaque"]
+position = Vector2(0, -64)
+shape = SubResource("RectangleShape2D_akag1")
+
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
+[connection signal="area_entered" from="AreaAtaque" to="." method="_on_area_ataque_area_entered"]

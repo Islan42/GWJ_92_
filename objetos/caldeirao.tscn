@@ -12,6 +12,7 @@
 size = Vector2(64, 64)
 
 [node name="Caldeirao" type="Area2D"]
+collision_layer = 4
 script = ExtResource("1_euj65")
 receitas = Array[Resource("res://receita.gd")]([ExtResource("6_b7w5r"), ExtResource("4_xpqtf"), ExtResource("5_388df"), ExtResource("3_jlxvg"), ExtResource("2_t1522")])
 
@@ -19,7 +20,7 @@ receitas = Array[Resource("res://receita.gd")]([ExtResource("6_b7w5r"), ExtResou
 shape = SubResource("RectangleShape2D_eau5n")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(2, 2)
+scale = Vector2(6, 6)
 texture = ExtResource("1_ie7xy")
 
 [node name="TempoCozimento" type="Timer" parent="."]

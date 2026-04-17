@@ -4,6 +4,8 @@ extends Area2D
 
 @onready var animacao : AnimatedSprite2D = $AnimatedSprite2D
 @onready var raycast : RayCast2D = $RayCast2D
+@onready var area_ataque : Area2D = $AreaAtaque
+@onready var colisao_area_ataque : CollisionShape2D = $AreaAtaque/CollisionShape2D
 
 var direcao : Vector2
 var posicao_alvo : Vector2
@@ -18,6 +20,7 @@ func _ready():
 	posicao_alvo = position
 	direcao_olhar = Vector2.RIGHT
 	raycast.target_position = Vector2.RIGHT * 64
+	colisao_area_ataque.disabled = true
 	#animacao.play("normal_idle_frente")
 
 func _process(delta):
@@ -30,6 +33,7 @@ func _process(delta):
 
 func calcular_acao():
 	var objeto = null
+	raycast.force_raycast_update()
 	if raycast.is_colliding():
 		objeto = raycast.get_collider()
 		
@@ -37,6 +41,7 @@ func calcular_acao():
 		if Input.is_action_just_pressed("acao"):
 			if not carregando_objeto:
 				agindo = true
+				colisao_area_ataque.disabled = false
 			elif objeto is Caldeirao:
 				objeto.add_ingrediente(objeto_carregado)
 				remove_child(objeto_carregado)
@@ -56,18 +61,22 @@ func calcular_acao():
 				objeto_carregado = objeto
 
 func calcular_movimento():
+	raycast.force_raycast_update()
 	direcao = Vector2.ZERO
 	if not agindo:
 		# is action just pressed + buffer
 		if Input.is_action_pressed("mover_esquerda"):
 			direcao = Vector2.LEFT
+			area_ataque.rotation = 3*PI/2
 		elif Input.is_action_pressed("mover_direita"):
 			direcao = Vector2.RIGHT
+			area_ataque.rotation = PI/2
 		elif Input.is_action_pressed("mover_cima"):
 			direcao = Vector2.UP
+			area_ataque.rotation = 0
 		elif Input.is_action_pressed("mover_baixo"):
 			direcao = Vector2.DOWN
-	
+			area_ataque.rotation = PI
 	if direcao != Vector2.ZERO:
 		#print(raycast.is_colliding())
 		if direcao == direcao_olhar and not raycast.is_colliding():
@@ -124,3 +133,11 @@ func largar_item():
 func _on_animated_sprite_2d_animation_finished():
 	if animacao.animation.contains("ataque"):
 		agindo = false
+		colisao_area_ataque.disabled = true
+
+
+func _on_area_ataque_area_entered(area):
+	if area.has_method("colher"):
+		area.colher()
+	elif area.has_method("tomar_dano"):
+		area.tomar_dano()

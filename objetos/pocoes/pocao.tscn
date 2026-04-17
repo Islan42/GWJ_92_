@@ -7,6 +7,7 @@
 size = Vector2(64, 64)
 
 [node name="Pocao" type="Area2D"]
+collision_layer = 4
 script = ExtResource("1_21qib")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

@@ -11,11 +11,12 @@ signal instanciar_fruta(nome, posicao)
 @onready var cooldown_timer : Timer = $Cooldown
 
 func colher():
-	colisao.disabled = true
-	sprite.modulate = Color("ffffff", 0.3) #Mudar SpriteAnimado para o original
-	cooldown_timer.start(cooldown)
-	
-	instanciar_fruta.emit(tipo_frutos,global_position)
+	if not colisao.disabled:
+		colisao.set_deferred("disabled", true)
+		sprite.modulate = Color("ffffff", 0.3) #Mudar SpriteAnimado para o original
+		cooldown_timer.start(cooldown)
+		
+		instanciar_fruta.emit(tipo_frutos,global_position)
 
 func _on_cooldown_timeout():
 	colisao.disabled = false
