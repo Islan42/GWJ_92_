@@ -42,6 +42,7 @@ func calcular_acao():
 			if not carregando_objeto:
 				agindo = true
 				colisao_area_ataque.disabled = false
+				print("Atacou")
 			elif objeto is Caldeirao:
 				objeto.add_ingrediente(objeto_carregado)
 				remove_child(objeto_carregado)
@@ -131,6 +132,7 @@ func largar_item():
 		objeto_carregado = null
 
 func _on_animated_sprite_2d_animation_finished():
+	print("Animou")
 	if animacao.animation.contains("ataque"):
 		agindo = false
 		colisao_area_ataque.disabled = true
