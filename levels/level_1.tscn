@@ -160,4 +160,3 @@ position = Vector2(736, 160)
 
 [node name="Red_Jane" parent="Ingredientes" instance=ExtResource("5_6jkou")]
 position = Vector2(224, -96)
-velocidade = 1.0

@@ -7,6 +7,7 @@ signal instanciar_pocao(pocao, posicao)
 
 @onready var tempo_cozimento_timer : Timer = $TempoCozimento
 @onready var barra_progresso : ProgressBar = $ProgressBar
+@onready var ui_caldeirao : Control = $ui_caldeirao
 
 var lista_ingredientes : Array
 var proxima_pocao : Receita
@@ -21,7 +22,8 @@ func _process(delta):
 
 func add_ingrediente(ingrediente : Object):
 	lista_ingredientes.append(ingrediente)
-	print(lista_ingredientes)
+	#print(lista_ingredientes)
+	ui_caldeirao.adicionar_item(ingrediente.nome)
 	checar_ingredientes()
 	preparar_pocao()
 
@@ -64,3 +66,4 @@ func esvaziar_caldeirao():
 	for item in lista_ingredientes:
 		item.call_deferred("queue_free")
 	lista_ingredientes = Array()
+	ui_caldeirao.esvaziar_ui()

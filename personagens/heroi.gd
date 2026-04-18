@@ -46,7 +46,10 @@ func calcular_acao():
 				objeto.add_ingrediente(objeto_carregado)
 				remove_child(objeto_carregado)
 				objeto.add_child(objeto_carregado)
+				
+				objeto_carregado.depositar()
 				carregando_objeto = false
+				objeto_carregado = null
 		elif Input.is_action_just_pressed("carregar_item"):
 			if objeto is Planta: # SE DER TEMPO, TIRAR QUANDO ADICIONAR O ATAQUE
 				objeto.colher()

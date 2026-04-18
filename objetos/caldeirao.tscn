@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://bt338mse2bg1x"]
+[gd_scene load_steps=10 format=3 uid="uid://bt338mse2bg1x"]
 
 [ext_resource type="Script" path="res://objetos/caldeirao.gd" id="1_euj65"]
 [ext_resource type="Texture2D" uid="uid://bscfmthsb4xqk" path="res://objetos/caldeirao.png" id="1_ie7xy"]
@@ -7,6 +7,7 @@
 [ext_resource type="Resource" uid="uid://df0u3i8lr42ei" path="res://resources/receitas/pocao_fogo.tres" id="4_xpqtf"]
 [ext_resource type="Resource" uid="uid://dw2nn1ssvyrfv" path="res://resources/receitas/pocao_vento.tres" id="5_388df"]
 [ext_resource type="Resource" uid="uid://cnohluf5htegx" path="res://resources/receitas/pocao_fogo_fogo.tres" id="6_b7w5r"]
+[ext_resource type="PackedScene" uid="uid://c8ne2okcrn75t" path="res://gui/ui_caldeirao_.tscn" id="8_g6v76"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_eau5n"]
 size = Vector2(64, 64)
@@ -34,5 +35,9 @@ offset_right = 104.0
 offset_bottom = 40.0
 rotation = 4.71239
 show_percentage = false
+
+[node name="ui_caldeirao" parent="." instance=ExtResource("8_g6v76")]
+offset_top = -64.0
+offset_bottom = -64.0
 
 [connection signal="timeout" from="TempoCozimento" to="." method="_on_tempo_cozimento_timeout"]

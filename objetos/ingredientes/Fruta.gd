@@ -23,4 +23,7 @@ func levantar():
 	colisao.disabled = true
 func largar():
 	colisao.disabled = false
+func depositar():
+	colisao.disabled = true
+	sprite.visible = false
 
