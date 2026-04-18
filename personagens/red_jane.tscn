@@ -1,0 +1,88 @@
+[gd_scene load_steps=11 format=3 uid="uid://la0sdc8brfy6"]
+
+[ext_resource type="PackedScene" uid="uid://cggd45xotundv" path="res://objetos/ingredientes/ingrediente.tscn" id="1_7e0vb"]
+[ext_resource type="Script" path="res://personagens/red_jane.gd" id="2_bf70i"]
+[ext_resource type="Texture2D" uid="uid://yp3cgj51qpqt" path="res://objetos/ingredientes/frutas.png" id="3_bdqgt"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uiybg"]
+atlas = ExtResource("3_bdqgt")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dg5hu"]
+atlas = ExtResource("3_bdqgt")
+region = Rect2(64, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_if744"]
+atlas = ExtResource("3_bdqgt")
+region = Rect2(96, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_86my0"]
+atlas = ExtResource("3_bdqgt")
+region = Rect2(64, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i5sty"]
+atlas = ExtResource("3_bdqgt")
+region = Rect2(80, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l7tl1"]
+atlas = ExtResource("3_bdqgt")
+region = Rect2(64, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_sfqf3"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uiybg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dg5hu")
+}],
+"loop": true,
+"name": &"andar",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_if744")
+}],
+"loop": true,
+"name": &"carregado",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_86my0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i5sty")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 2.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l7tl1")
+}],
+"loop": true,
+"name": &"pular",
+"speed": 1.0
+}]
+
+[node name="Red_Jane" instance=ExtResource("1_7e0vb")]
+script = ExtResource("2_bf70i")
+velocidade = 1.0
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." index="2"]
+scale = Vector2(4, 4)
+sprite_frames = SubResource("SpriteFrames_sfqf3")
+animation = &"carregado"
+
+[node name="timer_decisao" type="Timer" parent="." index="3"]
+one_shot = true
+
+[node name="RayCast2D" type="RayCast2D" parent="." index="4"]
+collision_mask = 15
+collide_with_areas = true
+
+[connection signal="timeout" from="timer_decisao" to="." method="_on_timer_decisao_timeout"]

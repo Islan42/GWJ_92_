@@ -5,11 +5,10 @@
 [ext_resource type="Texture2D" uid="uid://yp3cgj51qpqt" path="res://objetos/ingredientes/frutas.png" id="3_syp2q"]
 
 [node name="Fruta" instance=ExtResource("1_l7ujw")]
-collision_layer = 4
 script = ExtResource("2_n627l")
 
 [node name="Sprite2D" parent="." index="1"]
 scale = Vector2(4, 4)
 texture = ExtResource("3_syp2q")
-hframes = 5
+hframes = 7
 frame = 4
