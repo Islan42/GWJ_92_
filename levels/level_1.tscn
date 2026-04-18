@@ -77,6 +77,10 @@ tipo_frutos = "Orangine"
 position = Vector2(224, 32)
 tipo_frutos = "Orangine"
 
+[node name="Planta13" parent="Plantas" instance=ExtResource("2_un5x5")]
+position = Vector2(288, 32)
+tipo_frutos = "Orangine"
+
 [node name="Planta3" parent="Plantas" instance=ExtResource("2_un5x5")]
 position = Vector2(416, 32)
 tipo_frutos = "Purplezite"
@@ -85,17 +89,27 @@ tipo_frutos = "Purplezite"
 position = Vector2(480, 32)
 tipo_frutos = "Purplezite"
 
+[node name="Planta14" parent="Plantas" instance=ExtResource("2_un5x5")]
+position = Vector2(544, 32)
+tipo_frutos = "Purplezite"
+
 [node name="Planta5" parent="Plantas" instance=ExtResource("2_un5x5")]
 position = Vector2(160, 160)
 
 [node name="Planta6" parent="Plantas" instance=ExtResource("2_un5x5")]
 position = Vector2(224, 160)
 
+[node name="Planta15" parent="Plantas" instance=ExtResource("2_un5x5")]
+position = Vector2(288, 160)
+
 [node name="Planta7" parent="Plantas" instance=ExtResource("2_un5x5")]
 position = Vector2(416, 160)
 
 [node name="Planta8" parent="Plantas" instance=ExtResource("2_un5x5")]
 position = Vector2(480, 160)
+
+[node name="Planta16" parent="Plantas" instance=ExtResource("2_un5x5")]
+position = Vector2(544, 160)
 
 [node name="Planta9" parent="Plantas" instance=ExtResource("2_un5x5")]
 position = Vector2(160, 288)
@@ -104,12 +118,19 @@ position = Vector2(160, 288)
 position = Vector2(224, 288)
 tipo_frutos = "Purplezite"
 
+[node name="Planta17" parent="Plantas" instance=ExtResource("2_un5x5")]
+position = Vector2(288, 288)
+tipo_frutos = "Purplezite"
+
 [node name="Planta11" parent="Plantas" instance=ExtResource("2_un5x5")]
 position = Vector2(416, 288)
 tipo_frutos = "Orangine"
 
 [node name="Planta12" parent="Plantas" instance=ExtResource("2_un5x5")]
 position = Vector2(480, 288)
+
+[node name="Planta18" parent="Plantas" instance=ExtResource("2_un5x5")]
+position = Vector2(544, 288)
 
 [node name="Caldeiroes" type="Node2D" parent="."]
 

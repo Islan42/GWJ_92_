@@ -14,7 +14,11 @@ script = ExtResource("1_5wne6")
 shape = SubResource("RectangleShape2D_7e7kq")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+z_index = -1
+y_sort_enabled = true
+scale = Vector2(4, 4)
 texture = ExtResource("1_a5qdy")
+hframes = 2
 
 [node name="Cooldown" type="Timer" parent="."]
 one_shot = true

@@ -13,11 +13,13 @@ signal instanciar_fruta(nome, posicao)
 func colher():
 	if not colisao.disabled:
 		colisao.set_deferred("disabled", true)
-		sprite.modulate = Color("ffffff", 0.3) #Mudar SpriteAnimado para o original
+		#sprite.modulate = Color("ffffff", 0.3) #Mudar SpriteAnimado para o original
+		sprite.frame = 1
 		cooldown_timer.start(cooldown)
 		
 		instanciar_fruta.emit(tipo_frutos,global_position)
 
 func _on_cooldown_timeout():
 	colisao.disabled = false
-	sprite.modulate = Color("ffffff", 1.0)#Mudar SpriteAnimado para o original
+	#sprite.modulate = Color("ffffff", 1.0)#Mudar SpriteAnimado para o original
+	sprite.frame = 0
