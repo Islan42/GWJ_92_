@@ -4,6 +4,7 @@ class_name Caldeirao
 signal instanciar_pocao(pocao, posicao)
 
 @export var receitas : Array[Receita]
+@export var capacidade_total : int = 5
 
 @onready var tempo_cozimento_timer : Timer = $TempoCozimento
 @onready var barra_progresso : ProgressBar = $ProgressBar
@@ -20,12 +21,16 @@ func _process(delta):
 		var valor : float = tempo_decorrido/tempo_total
 		barra_progresso.value = 100 * valor
 
+func caldeirao_cheio() -> bool:
+	return lista_ingredientes.size() >= capacidade_total
+
 func add_ingrediente(ingrediente : Object):
-	lista_ingredientes.append(ingrediente)
-	#print(lista_ingredientes)
-	ui_caldeirao.adicionar_item(ingrediente.nome)
-	checar_ingredientes()
-	preparar_pocao()
+	if not caldeirao_cheio():
+		lista_ingredientes.append(ingrediente)
+		#print(lista_ingredientes)
+		ui_caldeirao.adicionar_item(ingrediente.nome)
+		checar_ingredientes()
+		preparar_pocao()
 
 func checar_ingredientes():
 	#proxima_pocao = null
@@ -49,6 +54,11 @@ func preparar_pocao():
 		tempo_cozimento_timer.start(tempo_total)
 		barra_progresso.visible = true
 
+func esvaziar_caldeirao():
+	for item in lista_ingredientes:
+		item.call_deferred("queue_free")
+	lista_ingredientes = Array()
+	ui_caldeirao.esvaziar_ui()
 
 func _on_tempo_cozimento_timeout():
 	if proxima_pocao != null:
@@ -61,9 +71,3 @@ func _on_tempo_cozimento_timeout():
 		barra_progresso.visible = false
 		proxima_pocao = null
 		esvaziar_caldeirao()
-
-func esvaziar_caldeirao():
-	for item in lista_ingredientes:
-		item.call_deferred("queue_free")
-	lista_ingredientes = Array()
-	ui_caldeirao.esvaziar_ui()

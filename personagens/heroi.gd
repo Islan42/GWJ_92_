@@ -3,6 +3,8 @@ class_name Heroi
 
 @export var velocidade : float = 4
 @export var hp : int = 5
+@export var mana : int = 0
+@export var ataque : int = 1
 
 @onready var animacao : AnimatedSprite2D = $AnimatedSprite2D
 @onready var raycast : RayCast2D = $RayCast2D
@@ -44,7 +46,7 @@ func calcular_acao():
 			if not carregando_objeto:
 				agindo = true
 				colisao_area_ataque.disabled = false
-			elif objeto is Caldeirao:
+			elif objeto is Caldeirao and not objeto.caldeirao_cheio():
 				objeto.add_ingrediente(objeto_carregado)
 				remove_child(objeto_carregado)
 				objeto.add_child(objeto_carregado)
@@ -52,6 +54,13 @@ func calcular_acao():
 				objeto_carregado.depositar()
 				carregando_objeto = false
 				objeto_carregado = null
+			elif objeto_carregado is Pocao:
+				objeto_carregado.ativar_efeito_primario(self)
+				
+				remove_child(objeto_carregado)
+				carregando_objeto = false
+				objeto_carregado = null
+				
 		elif Input.is_action_just_pressed("carregar_item"):
 			if objeto is Planta: # SE DER TEMPO, TIRAR QUANDO ADICIONAR O ATAQUE
 				objeto.colher()
@@ -138,6 +147,12 @@ func largar_item():
 func tomar_dano():
 	hp -= 1
 	print(hp)
+
+func curar(valor:int):
+	hp += valor
+
+func recuperar_mana(valor: int):
+	mana += valor
 
 func _on_animated_sprite_2d_animation_finished():
 	if animacao.animation.contains("ataque"):
