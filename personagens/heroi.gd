@@ -1,6 +1,8 @@
 extends Area2D
+class_name Heroi
 
 @export var velocidade : float = 4
+@export var hp : int = 5
 
 @onready var animacao : AnimatedSprite2D = $AnimatedSprite2D
 @onready var raycast : RayCast2D = $RayCast2D
@@ -133,11 +135,14 @@ func largar_item():
 		objeto_carregado.largar()
 		objeto_carregado = null
 
+func tomar_dano():
+	hp -= 1
+	print(hp)
+
 func _on_animated_sprite_2d_animation_finished():
 	if animacao.animation.contains("ataque"):
 		agindo = false
 		colisao_area_ataque.disabled = true
-
 
 func _on_area_ataque_area_entered(area):
 	if area.has_method("colher"):

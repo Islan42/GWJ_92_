@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://outo1j2amli2"]
+[gd_scene load_steps=34 format=3 uid="uid://outo1j2amli2"]
 
 [ext_resource type="Script" path="res://personagens/demoin.gd" id="1_osv7e"]
 [ext_resource type="Texture2D" uid="uid://b0d40ywdrm4vn" path="res://personagens/demoin.png" id="1_oxf8a"]
@@ -243,6 +243,12 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_lox14"]
+radius = 256.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qyona"]
+size = Vector2(64, 64)
+
 [node name="Demoin" type="Area2D"]
 collision_layer = 2
 collision_mask = 13
@@ -261,4 +267,23 @@ frame_progress = 1.0
 [node name="TimerAtack" type="Timer" parent="."]
 one_shot = true
 
+[node name="ZonaDeAtencao" type="Area2D" parent="."]
+collision_layer = 8
+
+[node name="ColisaoZDA" type="CollisionShape2D" parent="ZonaDeAtencao"]
+shape = SubResource("CircleShape2D_lox14")
+
+[node name="RayCast2D" type="RayCast2D" parent="."]
+collision_mask = 5
+collide_with_areas = true
+
+[node name="ZonaDeAtaque" type="Area2D" parent="."]
+collision_layer = 8
+
+[node name="ColisaoZDAtk" type="CollisionShape2D" parent="ZonaDeAtaque"]
+shape = SubResource("RectangleShape2D_qyona")
+
 [connection signal="timeout" from="TimerAtack" to="." method="_on_timer_atack_timeout"]
+[connection signal="area_entered" from="ZonaDeAtencao" to="." method="_on_zona_de_atencao_area_entered"]
+[connection signal="area_exited" from="ZonaDeAtencao" to="." method="_on_zona_de_atencao_area_exited"]
+[connection signal="area_entered" from="ZonaDeAtaque" to="." method="_on_zona_de_ataque_area_entered"]

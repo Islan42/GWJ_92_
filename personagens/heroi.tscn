@@ -625,6 +625,7 @@ animations = [{
 size = Vector2(190, 60)
 
 [node name="Heroi" type="Area2D"]
+collision_mask = 14
 script = ExtResource("1_y532s")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -647,7 +648,7 @@ drag_left_margin = 0.0
 editor_draw_drag_margin = true
 
 [node name="AreaAtaque" type="Area2D" parent="."]
-collision_layer = 8
+collision_layer = 10
 collision_mask = 6
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AreaAtaque"]
