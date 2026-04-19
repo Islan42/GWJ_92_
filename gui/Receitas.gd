@@ -1,10 +1,11 @@
 extends Control
 
 var receitas : Dictionary = {
-	"Receita 1": {"ingredientes": ["Orangine", "Orangine", "Purplezite"], "tempo": 15},
-	"Receita 2": {"ingredientes": ["Orangine", "Purplezite", "Purplezite"], "tempo": 15},
-	"Poção de Mana": {"ingredientes": ["Purplezite", "Purplezite"], "tempo": 10},
-	"Poção de Cura": {"ingredientes": ["Orangine", "Orangine"], "tempo": 10}
+	"Health Potion": {"ingredientes": ["Orangine", "Orangine"], "tempo": 15},
+	"Mana Potion": {"ingredientes": ["Purplezite", "Purplezite"], "tempo": 15},
+	"Wind Potion": {"ingredientes": ["Greenet", "Greenet"], "tempo": 15},
+	"Fire Potion": {"ingredientes": ["Orangine", "Red Jane"], "tempo": 10},
+	"Fire Fire Potion": {"ingredientes": ["Orangine", "Red_Jane", "Red_Jane"], "tempo": 10}
 }
 
 @onready var label : Label = $Label

@@ -5,17 +5,37 @@ const PLANTA = preload("res://objetos/planta.tscn")
 const CALDEIRAO = preload("res://objetos/caldeirao.tscn")
 const FRUTA = preload("res://objetos/ingredientes/fruta.tscn")
 const POCAO = preload("res://objetos/pocoes/pocao.tscn")
+const LEVEL0 = preload("res://levels/level_0.tscn")
+const LEVEL1 = preload("res://levels/level_1.tscn")
+
+@onready var heroi : Heroi = $Heroi
+@onready var mapa_atual : Node2D = $MapaAtual
+
+func _ready():
+	pass
 
 
-func _on_level_1_instanciar_fruta(nome_fruta, posicao):
+func _on_level_instanciar_fruta(nome_fruta, posicao):
 	var nova_fruta : Fruta = FRUTA.instantiate()
 	get_tree().current_scene.add_child(nova_fruta)
 	nova_fruta.global_position = posicao
 	nova_fruta.setup(nome_fruta)
 
 
-func _on_level_1_instanciar_pocao(pocao, posicao):
+func _on_level_instanciar_pocao(pocao, posicao):
 	var nova_pocao : Pocao = POCAO.instantiate()
 	get_tree().current_scene.add_child(nova_pocao)
 	nova_pocao.global_position = posicao
 	nova_pocao.setup(pocao.nome)
+
+
+func _on_level_chamar_proxima_fase():
+	var next_level = LEVEL1.instantiate()
+	mapa_atual.remove_child($MapaAtual/Level_0)
+	mapa_atual.add_child(next_level)
+	
+	heroi.global_position = Vector2(32,32)
+	heroi.posicao_alvo = Vector2(32,32)
+	
+	next_level.instanciar_fruta.connect(_on_level_instanciar_fruta)
+	next_level.instanciar_pocao.connect(_on_level_instanciar_pocao)

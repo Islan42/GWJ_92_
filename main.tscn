@@ -2,8 +2,8 @@
 
 [ext_resource type="PackedScene" uid="uid://3r307sg2foex" path="res://personagens/heroi.tscn" id="1_3igls"]
 [ext_resource type="Script" path="res://main.gd" id="1_i610v"]
-[ext_resource type="PackedScene" uid="uid://buaksbkg78b8g" path="res://levels/level_1.tscn" id="4_0m66d"]
 [ext_resource type="PackedScene" uid="uid://b7qmplxcfpegc" path="res://gui/receitas.tscn" id="5_g1q74"]
+[ext_resource type="PackedScene" uid="uid://yg2fwbwxll8w" path="res://levels/level_0.tscn" id="5_rnn7m"]
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_i610v")
@@ -14,7 +14,10 @@ script = ExtResource("1_i610v")
 
 [node name="Receitas" parent="CanvasLayer" instance=ExtResource("5_g1q74")]
 
-[node name="Level1" parent="." instance=ExtResource("4_0m66d")]
+[node name="MapaAtual" type="Node2D" parent="."]
 
-[connection signal="instanciar_fruta" from="Level1" to="." method="_on_level_1_instanciar_fruta"]
-[connection signal="instanciar_pocao" from="Level1" to="." method="_on_level_1_instanciar_pocao"]
+[node name="Level_0" parent="MapaAtual" instance=ExtResource("5_rnn7m")]
+
+[connection signal="chamar_proxima_fase" from="MapaAtual/Level_0" to="." method="_on_level_chamar_proxima_fase"]
+[connection signal="instanciar_fruta" from="MapaAtual/Level_0" to="." method="_on_level_instanciar_fruta"]
+[connection signal="instanciar_pocao" from="MapaAtual/Level_0" to="." method="_on_level_instanciar_pocao"]
