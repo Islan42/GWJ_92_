@@ -73,6 +73,11 @@ func largar():
 	is_carregado = false
 	posicao_alvo = position
 
+func depositar():
+	colisao.disabled = true
+	is_carregado = true
+	animacao.visible = false
+
 func reset_timer():
 	is_pensando = true
 	timer_decisao.start(randf_range(0.5,3))

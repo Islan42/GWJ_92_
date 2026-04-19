@@ -1,7 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://buaksbkg78b8g"]
+[gd_scene load_steps=9 format=3 uid="uid://buaksbkg78b8g"]
 
 [ext_resource type="Script" path="res://levels/level_1.gd" id="1_hibqt"]
 [ext_resource type="PackedScene" uid="uid://dxe0nktb72bpe" path="res://objetos/planta.tscn" id="2_un5x5"]
+[ext_resource type="PackedScene" uid="uid://outo1j2amli2" path="res://personagens/demoin.tscn" id="3_175pg"]
 [ext_resource type="PackedScene" uid="uid://bt338mse2bg1x" path="res://objetos/caldeirao.tscn" id="3_cyj3j"]
 [ext_resource type="Texture2D" uid="uid://lumx5r7cfqit" path="res://levels/tileset.png" id="4_01j6k"]
 [ext_resource type="PackedScene" uid="uid://la0sdc8brfy6" path="res://personagens/red_jane.tscn" id="5_6jkou"]
@@ -41,10 +42,12 @@ texture = ExtResource("4_01j6k")
 4:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 4:0/0/physics_layer_0/angular_velocity = 0.0
 0:1/0 = 0
+0:1/0/z_index = -1
 0:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 0:1/0/physics_layer_0/angular_velocity = 0.0
 0:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 1:1/0 = 0
+1:1/0/z_index = -1
 1:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 1:1/0/physics_layer_0/angular_velocity = 0.0
 1:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
@@ -160,3 +163,6 @@ position = Vector2(736, 160)
 
 [node name="Red_Jane" parent="Ingredientes" instance=ExtResource("5_6jkou")]
 position = Vector2(224, -96)
+
+[node name="Demoin" parent="." instance=ExtResource("3_175pg")]
+position = Vector2(928, -160)
