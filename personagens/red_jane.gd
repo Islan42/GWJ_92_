@@ -1,5 +1,5 @@
 extends Ingrediente
-class_name Red_Jane
+class_name Inseto
 
 @export var velocidade : float = 1
 

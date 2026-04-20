@@ -4,6 +4,7 @@ const HEROI = preload("res://personagens/heroi.tscn")
 const PLANTA = preload("res://objetos/planta.tscn")
 const CALDEIRAO = preload("res://objetos/caldeirao.tscn")
 const FRUTA = preload("res://objetos/ingredientes/fruta.tscn")
+const REDJANE = preload("res://personagens/red_jane.tscn")
 const POCAO = preload("res://objetos/pocoes/pocao.tscn")
 const LEVEL0 = preload("res://levels/level_0.tscn")
 const LEVEL1 = preload("res://levels/level_1.tscn")
@@ -16,10 +17,16 @@ func _ready():
 
 
 func _on_level_instanciar_fruta(nome_fruta, posicao):
-	var nova_fruta : Fruta = FRUTA.instantiate()
-	get_tree().current_scene.add_child(nova_fruta)
-	nova_fruta.global_position = posicao
-	nova_fruta.setup(nome_fruta)
+	if nome_fruta == "Red_Jane":
+		var novo_inseto : Inseto = REDJANE.instantiate()
+		get_tree().current_scene.add_child(novo_inseto)
+		novo_inseto.global_position = posicao
+		#novo_inseto.setup(nome_fruta)
+	else:
+		var nova_fruta : Fruta = FRUTA.instantiate()
+		get_tree().current_scene.add_child(nova_fruta)
+		nova_fruta.global_position = posicao
+		nova_fruta.setup(nome_fruta)
 
 
 func _on_level_instanciar_pocao(pocao, posicao):
