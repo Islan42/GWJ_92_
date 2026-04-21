@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="Ingrediente_Res" load_steps=2 format=3 uid="uid://dem3bi85i6hdl"]
+
+[ext_resource type="Script" path="res://ingrediente_res.gd" id="1_adguv"]
+
+[resource]
+script = ExtResource("1_adguv")
+nome = "Orangine"
+tipo = 0

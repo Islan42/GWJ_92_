@@ -1,7 +1,7 @@
 extends Area2D
 class_name Ingrediente
 
-@export var nome : String
+@export var ingrediente : Ingrediente_Res
 
 func _ready():
 	add_to_group("carregavel")

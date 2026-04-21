@@ -2,9 +2,10 @@ extends Area2D
 class_name Planta
 
 @export var cooldown : float = 10.0
-@export var tipo_frutos : String = "random"
+@export var drops : Ingrediente_Res
+#@export var drops : String = "random"
 
-signal instanciar_fruta(nome, posicao)
+signal instanciar_fruta(drop, posicao)
 
 @onready var sprite : Sprite2D = $Sprite2D
 @onready var colisao : CollisionShape2D = $CollisionShape2D
@@ -17,7 +18,7 @@ func colher():
 		sprite.frame = 1
 		cooldown_timer.start(cooldown)
 		
-		instanciar_fruta.emit(tipo_frutos,global_position)
+		instanciar_fruta.emit(drops,global_position)
 
 func _on_cooldown_timeout():
 	colisao.disabled = false

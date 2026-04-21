@@ -28,7 +28,7 @@ func add_ingrediente(ingrediente : Object):
 	if not caldeirao_cheio():
 		lista_ingredientes.append(ingrediente)
 		#print(lista_ingredientes)
-		ui_caldeirao.adicionar_item(ingrediente.nome)
+		ui_caldeirao.adicionar_item(ingrediente.ingrediente.nome)
 		checar_ingredientes()
 		preparar_pocao()
 
@@ -39,8 +39,8 @@ func checar_ingredientes():
 		var copia_ingredientes_receita : Array = receita.ingredientes.duplicate()
 		
 		for ingrediente_caldeirao in copia_ingredientes_caldeirao:
-			if copia_ingredientes_receita.has(ingrediente_caldeirao.nome):
-				copia_ingredientes_receita.erase(ingrediente_caldeirao.nome)
+			if copia_ingredientes_receita.has(ingrediente_caldeirao.ingrediente):
+				copia_ingredientes_receita.erase(ingrediente_caldeirao.ingrediente)
 		
 		if copia_ingredientes_receita.is_empty():
 			print("Possui todos os requisitos")
@@ -62,7 +62,7 @@ func esvaziar_caldeirao():
 
 func _on_tempo_cozimento_timeout():
 	if proxima_pocao != null:
-		print(proxima_pocao.nome)
+		print(proxima_pocao.pocao.nome)
 		instanciar_pocao.emit(proxima_pocao, global_position)
 		print("Emitiu sinal")
 		tempo_decorrido = 0

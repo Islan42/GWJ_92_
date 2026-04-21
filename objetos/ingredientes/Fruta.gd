@@ -12,12 +12,12 @@ enum sprites_frutas {
 
 var tipos_frutas : Array = ["Orangine", "Purplezite", "Greenet"]
 
-func setup(tipo_fruta:String = "random"):
-	if tipo_fruta == "random":
-		nome = tipos_frutas.pick_random()
+func setup(tipo_fruta:Ingrediente_Res):
+	if tipo_fruta.nome == "random":
+		pass
 	else:
-		nome = tipo_fruta
-	sprite.frame = sprites_frutas[nome.to_upper()]
+		ingrediente = tipo_fruta
+	sprite.frame = sprites_frutas[ingrediente.nome.to_upper()]
 
 func levantar():
 	colisao.disabled = true

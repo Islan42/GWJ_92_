@@ -1,9 +1,11 @@
-[gd_resource type="Resource" script_class="Receita" load_steps=2 format=3 uid="uid://dw2nn1ssvyrfv"]
+[gd_resource type="Resource" script_class="Receita" load_steps=4 format=3 uid="uid://dw2nn1ssvyrfv"]
 
 [ext_resource type="Script" path="res://receita.gd" id="1_7usen"]
+[ext_resource type="Resource" uid="uid://r6t0ji3ptuq8" path="res://resources/ingredientes/greenet.tres" id="1_cq7hh"]
+[ext_resource type="Resource" uid="uid://4dow8mkg23q4" path="res://resources/pocoes/pocao_vento.tres" id="2_d47xl"]
 
 [resource]
 script = ExtResource("1_7usen")
-nome = "Poção do Vento"
-ingredientes = Array[String](["Greenet", "Greenet"])
+pocao = ExtResource("2_d47xl")
+ingredientes = Array[Resource("res://ingrediente_res.gd")]([ExtResource("1_cq7hh"), ExtResource("1_cq7hh")])
 tempo_preparo = 15.0

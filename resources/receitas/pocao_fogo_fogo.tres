@@ -1,9 +1,12 @@
-[gd_resource type="Resource" script_class="Receita" load_steps=2 format=3 uid="uid://cnohluf5htegx"]
+[gd_resource type="Resource" script_class="Receita" load_steps=5 format=3 uid="uid://cnohluf5htegx"]
 
+[ext_resource type="Resource" uid="uid://dem3bi85i6hdl" path="res://resources/ingredientes/orangine.tres" id="1_l1wlc"]
 [ext_resource type="Script" path="res://receita.gd" id="1_ph2j2"]
+[ext_resource type="Resource" uid="uid://3fowjirdpgnx" path="res://resources/ingredientes/red_jane.tres" id="2_7m2xx"]
+[ext_resource type="Resource" uid="uid://5jfif8moqw71" path="res://resources/pocoes/pocao_fogo_fogo.tres" id="3_gj8ch"]
 
 [resource]
 script = ExtResource("1_ph2j2")
-nome = "Poção do Fogo Fogo"
-ingredientes = Array[String](["Orangine", "Red_Jane", "Red_Jane"])
+pocao = ExtResource("3_gj8ch")
+ingredientes = Array[Resource("res://ingrediente_res.gd")]([ExtResource("1_l1wlc"), ExtResource("2_7m2xx"), ExtResource("2_7m2xx")])
 tempo_preparo = 20.0

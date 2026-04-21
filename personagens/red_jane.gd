@@ -20,7 +20,7 @@ var proxima_acao : String
 func _ready():
 	add_to_group("carregavel")
 	animacao.play("idle")
-	nome = "Red_Jane"
+	#ingrediente = "Red_Jane"
 	
 	posicao_alvo = position
 	reset_timer()

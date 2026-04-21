@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="Pocao_Res" load_steps=2 format=3 uid="uid://4dow8mkg23q4"]
+
+[ext_resource type="Script" path="res://pocao_res.gd" id="1_d1ep6"]
+
+[resource]
+script = ExtResource("1_d1ep6")
+nome = "Poção do Vento"
+efeito_primario = "Aumenta a velocidade de movimento temporariamente"
+efeito_secundario = "Reduz a velocidade de inimigos"

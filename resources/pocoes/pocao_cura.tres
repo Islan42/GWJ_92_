@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="Pocao_Res" load_steps=2 format=3 uid="uid://xq7y0bl2xlw6"]
+
+[ext_resource type="Script" path="res://pocao_res.gd" id="1_ne1tj"]
+
+[resource]
+script = ExtResource("1_ne1tj")
+nome = "Poção de Cura"
+efeito_primario = "Cura 2 corações"
+efeito_secundario = ""

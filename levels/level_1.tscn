@@ -22,32 +22,26 @@ layer_0/tile_data = PackedInt32Array(-524304, 131073, 0, -458768, 1, 0, -393232,
 [node name="Planta" parent="Plantas" instance=ExtResource("2_un5x5")]
 position = Vector2(-800, -360)
 cooldown = 20.0
-tipo_frutos = "Orangine"
 
 [node name="Planta2" parent="Plantas" instance=ExtResource("2_un5x5")]
 position = Vector2(-736, -360)
 cooldown = 20.0
-tipo_frutos = "Orangine"
 
 [node name="Planta13" parent="Plantas" instance=ExtResource("2_un5x5")]
 position = Vector2(-672, -360)
 cooldown = 20.0
-tipo_frutos = "Orangine"
 
 [node name="Planta3" parent="Plantas" instance=ExtResource("2_un5x5")]
 position = Vector2(672, -352)
 cooldown = 20.0
-tipo_frutos = "Purplezite"
 
 [node name="Planta4" parent="Plantas" instance=ExtResource("2_un5x5")]
 position = Vector2(736, -352)
 cooldown = 20.0
-tipo_frutos = "Purplezite"
 
 [node name="Planta14" parent="Plantas" instance=ExtResource("2_un5x5")]
 position = Vector2(800, -352)
 cooldown = 20.0
-tipo_frutos = "Purplezite"
 
 [node name="Planta5" parent="Plantas" instance=ExtResource("2_un5x5")]
 position = Vector2(-800, 352)
@@ -80,17 +74,14 @@ cooldown = 20.0
 [node name="Planta10" parent="Plantas" instance=ExtResource("2_un5x5")]
 position = Vector2(-224, -96)
 cooldown = 20.0
-tipo_frutos = "Purplezite"
 
 [node name="Planta17" parent="Plantas" instance=ExtResource("2_un5x5")]
 position = Vector2(-160, -32)
 cooldown = 20.0
-tipo_frutos = "Purplezite"
 
 [node name="Planta11" parent="Plantas" instance=ExtResource("2_un5x5")]
 position = Vector2(32, -32)
 cooldown = 20.0
-tipo_frutos = "Orangine"
 
 [node name="Planta12" parent="Plantas" instance=ExtResource("2_un5x5")]
 position = Vector2(96, -96)

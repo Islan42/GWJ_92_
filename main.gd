@@ -16,24 +16,26 @@ func _ready():
 	pass
 
 
-func _on_level_instanciar_fruta(nome_fruta, posicao):
-	if nome_fruta == "Red_Jane":
+func _on_level_instanciar_fruta(drop : Ingrediente_Res, posicao):
+	if drop.tipo == Ingrediente_Res.tipos.RANDOM:
+		pass
+	elif drop.tipo == Ingrediente_Res.tipos.INSETO:
 		var novo_inseto : Inseto = REDJANE.instantiate()
 		get_tree().current_scene.add_child(novo_inseto)
 		novo_inseto.global_position = posicao
 		#novo_inseto.setup(nome_fruta)
-	else:
+	elif drop.tipo == Ingrediente_Res.tipos.FRUTA:
 		var nova_fruta : Fruta = FRUTA.instantiate()
 		get_tree().current_scene.add_child(nova_fruta)
 		nova_fruta.global_position = posicao
-		nova_fruta.setup(nome_fruta)
+		nova_fruta.setup(drop)
 
 
 func _on_level_instanciar_pocao(pocao, posicao):
 	var nova_pocao : Pocao = POCAO.instantiate()
 	get_tree().current_scene.add_child(nova_pocao)
 	nova_pocao.global_position = posicao
-	nova_pocao.setup(pocao.nome)
+	nova_pocao.setup(pocao.pocao.nome)
 
 
 func _on_level_chamar_proxima_fase():

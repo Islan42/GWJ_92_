@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="Pocao_Res" load_steps=2 format=3 uid="uid://b750ffu13kkut"]
+
+[ext_resource type="Script" path="res://pocao_res.gd" id="1_jvg8w"]
+
+[resource]
+script = ExtResource("1_jvg8w")
+nome = "Poção de Mana"
+efeito_primario = "Recupera 2 de Mana"
+efeito_secundario = ""

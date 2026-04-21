@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://objetos/caldeirao.gd" id="1_euj65"]
 [ext_resource type="Texture2D" uid="uid://bscfmthsb4xqk" path="res://objetos/caldeirao.png" id="1_ie7xy"]
-[ext_resource type="Resource" uid="uid://cehsqxsbw6mct" path="res://resources/receitas/pocao_cura.tres" id="2_t1522"]
+[ext_resource type="Resource" uid="uid://cnkurei3v8561" path="res://resources/receitas/pocao_cura.tres" id="2_t1522"]
 [ext_resource type="Resource" uid="uid://coo6tx14cj4wm" path="res://resources/receitas/pocao_mana.tres" id="3_jlxvg"]
 [ext_resource type="Resource" uid="uid://df0u3i8lr42ei" path="res://resources/receitas/pocao_fogo.tres" id="4_xpqtf"]
 [ext_resource type="Resource" uid="uid://dw2nn1ssvyrfv" path="res://resources/receitas/pocao_vento.tres" id="5_388df"]

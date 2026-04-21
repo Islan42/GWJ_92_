@@ -1,9 +1,11 @@
-[gd_resource type="Resource" script_class="Receita" load_steps=2 format=3 uid="uid://cehsqxsbw6mct"]
+[gd_resource type="Resource" script_class="Receita" load_steps=4 format=3 uid="uid://cnkurei3v8561"]
 
-[ext_resource type="Script" path="res://receita.gd" id="1_cycm3"]
+[ext_resource type="Resource" uid="uid://dem3bi85i6hdl" path="res://resources/ingredientes/orangine.tres" id="1_dwkcb"]
+[ext_resource type="Script" path="res://receita.gd" id="1_y6cpm"]
+[ext_resource type="Resource" uid="uid://xq7y0bl2xlw6" path="res://resources/pocoes/pocao_cura.tres" id="2_5enjd"]
 
 [resource]
-script = ExtResource("1_cycm3")
-nome = "Poção de Cura"
-ingredientes = Array[String](["Orangine", "Orangine"])
-tempo_preparo = 10.0
+script = ExtResource("1_y6cpm")
+pocao = ExtResource("2_5enjd")
+ingredientes = Array[Resource("res://ingrediente_res.gd")]([ExtResource("1_dwkcb"), ExtResource("1_dwkcb")])
+tempo_preparo = 0.0

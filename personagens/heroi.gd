@@ -46,7 +46,7 @@ func calcular_acao():
 			if not carregando_objeto:
 				agindo = true
 				colisao_area_ataque.disabled = false
-			elif objeto is Caldeirao and not objeto.caldeirao_cheio():
+			elif objeto is Caldeirao and not objeto.caldeirao_cheio(): #TALVEZ Verificar se é ingrediente
 				objeto.add_ingrediente(objeto_carregado)
 				remove_child(objeto_carregado)
 				objeto.add_child(objeto_carregado)
