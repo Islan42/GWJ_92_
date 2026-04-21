@@ -1,10 +1,5 @@
 extends Control
 
-enum indice_lista_ingredientes {ORANGINE, PURPLEZITE, GREENET, RED_JANE, POÇÃO_DE_CURA, POÇÃO_DE_MANA, POÇÃO_DO_VENTO, POÇÃO_DO_FOGO,
-	POÇÃO_DO_FOGO_FOGO
-}
-
-
 @onready var container : HBoxContainer = $HBoxContainer
 @onready var ingredientes_retratos : CompressedTexture2D = load("res://gui/ingredientes.png")
 
@@ -31,18 +26,11 @@ func _ready():
 		slot_4 : {"ocupado" : false, "textura" : $HBoxContainer/Slot4/slot_4_textura}
 	}
 
-func adicionar_item(nome_ingrediente : String):
-	nome_ingrediente = nome_ingrediente.to_snake_case().to_upper()
-	
-	var atlas_texture = AtlasTexture.new()
-	var regiao = indice_lista_ingredientes[nome_ingrediente] * 16
-	atlas_texture.atlas = ingredientes_retratos
-	atlas_texture.region = Rect2(regiao, 0, 16,16)
-	
+func adicionar_item(ingrediente : Ingrediente_Res):
 	for slot in mapeamento_slots:
 		var dicionario = mapeamento_slots[slot]
 		if not dicionario["ocupado"]:
-			dicionario["textura"].texture = atlas_texture
+			dicionario["textura"].texture = ingrediente.ui_sprite
 			dicionario["ocupado"] = true
 			slot.visible = true
 			break

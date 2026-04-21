@@ -28,7 +28,7 @@ func add_ingrediente(ingrediente : Ingrediente_Res):
 	if not caldeirao_cheio():
 		lista_ingredientes.append(ingrediente)
 		#print(lista_ingredientes)
-		ui_caldeirao.adicionar_item(ingrediente.nome)
+		ui_caldeirao.adicionar_item(ingrediente)
 		checar_ingredientes()
 		preparar_pocao()
 
