@@ -5,3 +5,4 @@ enum tipos {FRUTA, INSETO, RANDOM}
 
 @export var nome : String
 @export var tipo : tipos
+@export var ui_sprite : AtlasTexture

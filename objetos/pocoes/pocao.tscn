@@ -16,5 +16,3 @@ shape = SubResource("RectangleShape2D_q15j3")
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(3, 3)
 texture = ExtResource("2_csdgi")
-hframes = 5
-frame = 4

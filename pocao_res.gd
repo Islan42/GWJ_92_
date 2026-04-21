@@ -3,5 +3,6 @@ class_name Pocao_Res
 
 @export var nome : String
 @export var receita : Receita
+@export var ui_sprite : AtlasTexture
 @export var efeito_primario : String
 @export var efeito_secundario : String

@@ -1,8 +1,14 @@
-[gd_resource type="Resource" script_class="Ingrediente_Res" load_steps=2 format=3 uid="uid://r6t0ji3ptuq8"]
+[gd_resource type="Resource" script_class="Ingrediente_Res" load_steps=4 format=3 uid="uid://r6t0ji3ptuq8"]
 
 [ext_resource type="Script" path="res://ingrediente_res.gd" id="1_3on6n"]
+[ext_resource type="Texture2D" uid="uid://l2t0fwllt2u3" path="res://gui/ingredientes.png" id="2_pl5vv"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rd5rp"]
+atlas = ExtResource("2_pl5vv")
+region = Rect2(32, 0, 16, 16)
 
 [resource]
 script = ExtResource("1_3on6n")
 nome = "Greenet"
 tipo = 0
+ui_sprite = SubResource("AtlasTexture_rd5rp")

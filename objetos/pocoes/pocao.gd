@@ -7,13 +7,6 @@ class_name Pocao
 @onready var sprite : Sprite2D = $Sprite2D
 
 var pocao_res : Pocao_Res
-var tipos_pocao : Dictionary = {
-	"Poção de Cura": ["Curar", "Nada", "POCAO_CURA"],
-	"Poção de Mana": ["Restaurar mana", "Nada", "POCAO_MANA"],
-	"Poção do Vento": ["Aumenta a velocidade de movimento", "Inimigos ficam lentos", "POCAO_VENTO"],
-	"Poção do Fogo": ["Aumenta o dano em 1.5", "Explode", "POCAO_FOGO"],
-	"Poção do Fogo Fogo": ["Aumenta o dano em 2.0 e projétil explode", "Pega fogo na área", "POCAO_FOGO_FOGO"]
-}
 
 enum sprites_pocoes {POCAO_CURA, POCAO_MANA, POCAO_VENTO, POCAO_FOGO, POCAO_FOGO_FOGO}
 
@@ -22,7 +15,8 @@ func _ready():
 
 func setup(nova_pocao : Pocao_Res):
 	pocao_res = nova_pocao
-	sprite.frame = sprites_pocoes[tipos_pocao[pocao_res.nome][2]] 
+	sprite.texture = pocao_res.ui_sprite
+	#sprite.frame = sprites_pocoes[tipos_pocao[pocao_res.nome][2]] 
 	#sprite.frame = sprites_pocoes[tipos_pocao[nome][2]] 
 
 func ativar_efeito_primario(heroi : Heroi):
