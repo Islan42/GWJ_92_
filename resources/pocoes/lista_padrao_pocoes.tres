@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="Pocao_Res_Lista" load_steps=7 format=3 uid="uid://dmw4mp5lwvhyq"]
+
+[ext_resource type="Resource" uid="uid://5jfif8moqw71" path="res://resources/pocoes/pocao_fogo_fogo.tres" id="1_adjr5"]
+[ext_resource type="Script" path="res://scripts/res_pocoes_lista.gd" id="1_hxwt7"]
+[ext_resource type="Resource" uid="uid://des0w4w8wyxx5" path="res://resources/pocoes/pocao_fogo.tres" id="2_50bw3"]
+[ext_resource type="Resource" uid="uid://4dow8mkg23q4" path="res://resources/pocoes/pocao_vento.tres" id="3_yb3dl"]
+[ext_resource type="Resource" uid="uid://b750ffu13kkut" path="res://resources/pocoes/pocao_mana.tres" id="4_hk6dd"]
+[ext_resource type="Resource" uid="uid://xq7y0bl2xlw6" path="res://resources/pocoes/pocao_cura.tres" id="5_qfbj7"]
+
+[resource]
+script = ExtResource("1_hxwt7")
+lista = Array[Resource("res://pocao_res.gd")]([ExtResource("1_adjr5"), ExtResource("3_yb3dl"), ExtResource("2_50bw3"), ExtResource("4_hk6dd"), ExtResource("5_qfbj7")])
+nome = ""
+efeito_primario = ""
+efeito_secundario = ""

@@ -3,7 +3,7 @@ class_name Caldeirao
 
 signal instanciar_pocao(pocao : Pocao_Res, posicao)
 
-@export var pocoes : Array[Pocao_Res]
+@export var pocoes : Pocao_Res_Lista
 @export var capacidade_total : int = 5
 
 @onready var tempo_cozimento_timer : Timer = $TempoCozimento
@@ -34,7 +34,7 @@ func add_ingrediente(ingrediente : Ingrediente_Res):
 
 func checar_ingredientes():
 	#proxima_pocao = null
-	for pocao in pocoes:
+	for pocao in pocoes.lista:
 		var copia_ingredientes_caldeirao : Array[Ingrediente_Res] = lista_ingredientes.duplicate()
 		var copia_ingredientes_receita : Array[Ingrediente_Res] = pocao.receita.ingredientes.duplicate()
 		

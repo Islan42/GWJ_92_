@@ -1,12 +1,6 @@
 extends Control
 
-var receitas : Dictionary = {
-	"Health Potion": {"ingredientes": ["Orangine", "Orangine"], "tempo": 15},
-	"Mana Potion": {"ingredientes": ["Purplezite", "Purplezite"], "tempo": 15},
-	"Wind Potion": {"ingredientes": ["Greenet", "Greenet"], "tempo": 15},
-	"Fire Potion": {"ingredientes": ["Orangine", "Red Jane"], "tempo": 10},
-	"Fire Fire Potion": {"ingredientes": ["Orangine", "Red_Jane", "Red_Jane"], "tempo": 10}
-}
+@export var pocoes : Pocao_Res_Lista
 
 @onready var label : Label = $Label
 
@@ -21,9 +15,10 @@ func alternar_visibilidade():
 	
 	if visible:
 		texto = ""
-		for receita in receitas:
-			texto += receita + ": "
-			for item in receitas[receita]["ingredientes"]:
-				texto += item + " - "
+		for pocao in pocoes.lista:
+			texto += pocao.nome + ": "
+			for item in pocao.receita.ingredientes:
+				texto += item.nome + " - "
+			texto += String.num(pocao.receita.tempo_preparo) + " sec"
 			texto += "\n"
 		label.text = texto

@@ -1,12 +1,8 @@
-[gd_scene load_steps=10 format=3 uid="uid://bt338mse2bg1x"]
+[gd_scene load_steps=6 format=3 uid="uid://bt338mse2bg1x"]
 
 [ext_resource type="Script" path="res://objetos/caldeirao.gd" id="1_euj65"]
 [ext_resource type="Texture2D" uid="uid://bscfmthsb4xqk" path="res://objetos/caldeirao.png" id="1_ie7xy"]
-[ext_resource type="Resource" uid="uid://5jfif8moqw71" path="res://resources/pocoes/pocao_fogo_fogo.tres" id="2_f3xah"]
-[ext_resource type="Resource" uid="uid://des0w4w8wyxx5" path="res://resources/pocoes/pocao_fogo.tres" id="3_e37wr"]
-[ext_resource type="Resource" uid="uid://4dow8mkg23q4" path="res://resources/pocoes/pocao_vento.tres" id="4_8fotq"]
-[ext_resource type="Resource" uid="uid://xq7y0bl2xlw6" path="res://resources/pocoes/pocao_cura.tres" id="5_pif6q"]
-[ext_resource type="Resource" uid="uid://b750ffu13kkut" path="res://resources/pocoes/pocao_mana.tres" id="6_0u2sc"]
+[ext_resource type="Resource" uid="uid://dmw4mp5lwvhyq" path="res://resources/pocoes/lista_padrao_pocoes.tres" id="2_85h0k"]
 [ext_resource type="PackedScene" uid="uid://c8ne2okcrn75t" path="res://gui/ui_caldeirao_.tscn" id="8_g6v76"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_eau5n"]
@@ -15,7 +11,7 @@ size = Vector2(64, 64)
 [node name="Caldeirao" type="Area2D"]
 collision_layer = 4
 script = ExtResource("1_euj65")
-pocoes = Array[Resource("res://pocao_res.gd")]([ExtResource("2_f3xah"), ExtResource("3_e37wr"), ExtResource("4_8fotq"), ExtResource("5_pif6q"), ExtResource("6_0u2sc")])
+pocoes = ExtResource("2_85h0k")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_eau5n")
