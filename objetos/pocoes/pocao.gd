@@ -6,7 +6,7 @@ class_name Pocao
 @onready var colisao : CollisionShape2D = $CollisionShape2D
 @onready var sprite : Sprite2D = $Sprite2D
 
-var nome
+var pocao_res : Pocao_Res
 var tipos_pocao : Dictionary = {
 	"Poção de Cura": ["Curar", "Nada", "POCAO_CURA"],
 	"Poção de Mana": ["Restaurar mana", "Nada", "POCAO_MANA"],
@@ -20,17 +20,13 @@ enum sprites_pocoes {POCAO_CURA, POCAO_MANA, POCAO_VENTO, POCAO_FOGO, POCAO_FOGO
 func _ready():
 	add_to_group("carregavel")
 
-func setup(nome_pocao:String = "random"):
-	if nome_pocao == "random":
-		var chaves = tipos_pocao.keys()
-		var rng = randi_range(0, chaves.size-1)
-		nome = chaves[rng]
-	else:
-		nome = nome_pocao
-	sprite.frame = sprites_pocoes[tipos_pocao[nome][2]] 
+func setup(nova_pocao : Pocao_Res):
+	pocao_res = nova_pocao
+	sprite.frame = sprites_pocoes[tipos_pocao[pocao_res.nome][2]] 
+	#sprite.frame = sprites_pocoes[tipos_pocao[nome][2]] 
 
 func ativar_efeito_primario(heroi : Heroi):
-	match nome:
+	match pocao_res.nome:
 		"Poção de Cura":
 			heroi.curar(2)
 		"Poção de Mana":

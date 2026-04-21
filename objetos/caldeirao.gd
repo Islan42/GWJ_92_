@@ -1,7 +1,7 @@
 extends Area2D
 class_name Caldeirao
 
-signal instanciar_pocao(pocao, posicao)
+signal instanciar_pocao(pocao : Pocao_Res, posicao)
 
 @export var receitas : Array[Receita]
 @export var capacidade_total : int = 5
@@ -11,7 +11,7 @@ signal instanciar_pocao(pocao, posicao)
 @onready var ui_caldeirao : Control = $ui_caldeirao
 
 var lista_ingredientes : Array[Ingrediente_Res]
-var proxima_pocao : Receita
+var proxima_receita : Receita
 var tempo_decorrido : float = 0
 var tempo_total : float = 0
 
@@ -44,13 +44,13 @@ func checar_ingredientes():
 		
 		if copia_ingredientes_receita.is_empty():
 			print("Possui todos os requisitos")
-			proxima_pocao = receita
+			proxima_receita = receita
 			return
 
 func preparar_pocao():
-	if proxima_pocao != null:
+	if proxima_receita != null:
 		tempo_decorrido = 0
-		tempo_total = proxima_pocao.tempo_preparo
+		tempo_total = proxima_receita.tempo_preparo
 		tempo_cozimento_timer.start(tempo_total)
 		barra_progresso.visible = true
 
@@ -61,13 +61,13 @@ func esvaziar_caldeirao():
 	ui_caldeirao.esvaziar_ui()
 
 func _on_tempo_cozimento_timeout():
-	if proxima_pocao != null:
-		print(proxima_pocao.pocao.nome)
-		instanciar_pocao.emit(proxima_pocao, global_position)
+	if proxima_receita != null:
+		print(proxima_receita.pocao.nome)
+		instanciar_pocao.emit(proxima_receita.pocao, global_position)
 		print("Emitiu sinal")
 		tempo_decorrido = 0
 		tempo_total = 0
 		barra_progresso.value = 0
 		barra_progresso.visible = false
-		proxima_pocao = null
+		proxima_receita = null
 		esvaziar_caldeirao()

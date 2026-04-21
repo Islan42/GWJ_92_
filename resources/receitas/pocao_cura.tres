@@ -8,4 +8,4 @@
 script = ExtResource("1_y6cpm")
 pocao = ExtResource("2_5enjd")
 ingredientes = Array[Resource("res://ingrediente_res.gd")]([ExtResource("1_dwkcb"), ExtResource("1_dwkcb")])
-tempo_preparo = 0.0
+tempo_preparo = 10.0
