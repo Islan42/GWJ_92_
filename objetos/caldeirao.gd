@@ -3,7 +3,7 @@ class_name Caldeirao
 
 signal instanciar_pocao(pocao : Pocao_Res, posicao)
 
-@export var receitas : Array[Receita]
+@export var pocoes : Array[Pocao_Res]
 @export var capacidade_total : int = 5
 
 @onready var tempo_cozimento_timer : Timer = $TempoCozimento
@@ -11,7 +11,7 @@ signal instanciar_pocao(pocao : Pocao_Res, posicao)
 @onready var ui_caldeirao : Control = $ui_caldeirao
 
 var lista_ingredientes : Array[Ingrediente_Res]
-var proxima_receita : Receita
+var proxima_pocao : Pocao_Res
 var tempo_decorrido : float = 0
 var tempo_total : float = 0
 
@@ -34,9 +34,9 @@ func add_ingrediente(ingrediente : Ingrediente_Res):
 
 func checar_ingredientes():
 	#proxima_pocao = null
-	for receita in receitas:
+	for pocao in pocoes:
 		var copia_ingredientes_caldeirao : Array[Ingrediente_Res] = lista_ingredientes.duplicate()
-		var copia_ingredientes_receita : Array[Ingrediente_Res] = receita.ingredientes.duplicate()
+		var copia_ingredientes_receita : Array[Ingrediente_Res] = pocao.receita.ingredientes.duplicate()
 		
 		for ingrediente_caldeirao in copia_ingredientes_caldeirao:
 			if copia_ingredientes_receita.has(ingrediente_caldeirao):
@@ -44,13 +44,13 @@ func checar_ingredientes():
 		
 		if copia_ingredientes_receita.is_empty():
 			print("Possui todos os requisitos")
-			proxima_receita = receita
+			proxima_pocao = pocao
 			return
 
 func preparar_pocao():
-	if proxima_receita != null:
+	if proxima_pocao != null:
 		tempo_decorrido = 0
-		tempo_total = proxima_receita.tempo_preparo
+		tempo_total = proxima_pocao.receita.tempo_preparo
 		tempo_cozimento_timer.start(tempo_total)
 		barra_progresso.visible = true
 
@@ -61,13 +61,13 @@ func esvaziar_caldeirao():
 	ui_caldeirao.esvaziar_ui()
 
 func _on_tempo_cozimento_timeout():
-	if proxima_receita != null:
-		print(proxima_receita.pocao.nome)
-		instanciar_pocao.emit(proxima_receita.pocao, global_position)
+	if proxima_pocao != null:
+		print(proxima_pocao.nome)
+		instanciar_pocao.emit(proxima_pocao, global_position)
 		print("Emitiu sinal")
 		tempo_decorrido = 0
 		tempo_total = 0
 		barra_progresso.value = 0
 		barra_progresso.visible = false
-		proxima_receita = null
+		proxima_pocao = null
 		esvaziar_caldeirao()

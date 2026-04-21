@@ -1,9 +1,11 @@
-[gd_resource type="Resource" script_class="Pocao_Res" load_steps=2 format=3 uid="uid://xq7y0bl2xlw6"]
+[gd_resource type="Resource" script_class="Pocao_Res" load_steps=3 format=3 uid="uid://xq7y0bl2xlw6"]
 
 [ext_resource type="Script" path="res://pocao_res.gd" id="1_ne1tj"]
+[ext_resource type="Resource" uid="uid://cnkurei3v8561" path="res://resources/receitas/pocao_cura.tres" id="1_xegtw"]
 
 [resource]
 script = ExtResource("1_ne1tj")
 nome = "Poção de Cura"
+receita = ExtResource("1_xegtw")
 efeito_primario = "Cura 2 corações"
 efeito_secundario = ""

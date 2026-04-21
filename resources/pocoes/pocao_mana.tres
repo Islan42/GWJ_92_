@@ -1,9 +1,11 @@
-[gd_resource type="Resource" script_class="Pocao_Res" load_steps=2 format=3 uid="uid://b750ffu13kkut"]
+[gd_resource type="Resource" script_class="Pocao_Res" load_steps=3 format=3 uid="uid://b750ffu13kkut"]
 
 [ext_resource type="Script" path="res://pocao_res.gd" id="1_jvg8w"]
+[ext_resource type="Resource" uid="uid://coo6tx14cj4wm" path="res://resources/receitas/pocao_mana.tres" id="1_p8505"]
 
 [resource]
 script = ExtResource("1_jvg8w")
 nome = "Poção de Mana"
+receita = ExtResource("1_p8505")
 efeito_primario = "Recupera 2 de Mana"
 efeito_secundario = ""

@@ -1,9 +1,11 @@
-[gd_resource type="Resource" script_class="Pocao_Res" load_steps=2 format=3 uid="uid://des0w4w8wyxx5"]
+[gd_resource type="Resource" script_class="Pocao_Res" load_steps=3 format=3 uid="uid://des0w4w8wyxx5"]
 
 [ext_resource type="Script" path="res://pocao_res.gd" id="1_b1x4v"]
+[ext_resource type="Resource" uid="uid://df0u3i8lr42ei" path="res://resources/receitas/pocao_fogo.tres" id="1_v407o"]
 
 [resource]
 script = ExtResource("1_b1x4v")
 nome = "Poção do Fogo"
+receita = ExtResource("1_v407o")
 efeito_primario = "Aumenta o ataque em 1"
 efeito_secundario = "Causa dano em área"

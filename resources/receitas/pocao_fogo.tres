@@ -1,12 +1,10 @@
-[gd_resource type="Resource" script_class="Receita" load_steps=5 format=3 uid="uid://df0u3i8lr42ei"]
+[gd_resource type="Resource" script_class="Receita" load_steps=4 format=3 uid="uid://df0u3i8lr42ei"]
 
 [ext_resource type="Resource" uid="uid://dem3bi85i6hdl" path="res://resources/ingredientes/orangine.tres" id="1_rawyp"]
 [ext_resource type="Script" path="res://receita.gd" id="1_s82e6"]
 [ext_resource type="Resource" uid="uid://3fowjirdpgnx" path="res://resources/ingredientes/red_jane.tres" id="2_26rc3"]
-[ext_resource type="Resource" uid="uid://des0w4w8wyxx5" path="res://resources/pocoes/pocao_fogo.tres" id="3_7ysw7"]
 
 [resource]
 script = ExtResource("1_s82e6")
-pocao = ExtResource("3_7ysw7")
 ingredientes = Array[Resource("res://ingrediente_res.gd")]([ExtResource("1_rawyp"), ExtResource("2_26rc3")])
 tempo_preparo = 12.0

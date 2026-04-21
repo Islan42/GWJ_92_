@@ -2,11 +2,11 @@
 
 [ext_resource type="Script" path="res://objetos/caldeirao.gd" id="1_euj65"]
 [ext_resource type="Texture2D" uid="uid://bscfmthsb4xqk" path="res://objetos/caldeirao.png" id="1_ie7xy"]
-[ext_resource type="Resource" uid="uid://cnkurei3v8561" path="res://resources/receitas/pocao_cura.tres" id="2_t1522"]
-[ext_resource type="Resource" uid="uid://coo6tx14cj4wm" path="res://resources/receitas/pocao_mana.tres" id="3_jlxvg"]
-[ext_resource type="Resource" uid="uid://df0u3i8lr42ei" path="res://resources/receitas/pocao_fogo.tres" id="4_xpqtf"]
-[ext_resource type="Resource" uid="uid://dw2nn1ssvyrfv" path="res://resources/receitas/pocao_vento.tres" id="5_388df"]
-[ext_resource type="Resource" uid="uid://cnohluf5htegx" path="res://resources/receitas/pocao_fogo_fogo.tres" id="6_b7w5r"]
+[ext_resource type="Resource" uid="uid://5jfif8moqw71" path="res://resources/pocoes/pocao_fogo_fogo.tres" id="2_f3xah"]
+[ext_resource type="Resource" uid="uid://des0w4w8wyxx5" path="res://resources/pocoes/pocao_fogo.tres" id="3_e37wr"]
+[ext_resource type="Resource" uid="uid://4dow8mkg23q4" path="res://resources/pocoes/pocao_vento.tres" id="4_8fotq"]
+[ext_resource type="Resource" uid="uid://xq7y0bl2xlw6" path="res://resources/pocoes/pocao_cura.tres" id="5_pif6q"]
+[ext_resource type="Resource" uid="uid://b750ffu13kkut" path="res://resources/pocoes/pocao_mana.tres" id="6_0u2sc"]
 [ext_resource type="PackedScene" uid="uid://c8ne2okcrn75t" path="res://gui/ui_caldeirao_.tscn" id="8_g6v76"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_eau5n"]
@@ -15,7 +15,7 @@ size = Vector2(64, 64)
 [node name="Caldeirao" type="Area2D"]
 collision_layer = 4
 script = ExtResource("1_euj65")
-receitas = Array[Resource("res://receita.gd")]([ExtResource("6_b7w5r"), ExtResource("4_xpqtf"), ExtResource("5_388df"), ExtResource("3_jlxvg"), ExtResource("2_t1522")])
+pocoes = Array[Resource("res://pocao_res.gd")]([ExtResource("2_f3xah"), ExtResource("3_e37wr"), ExtResource("4_8fotq"), ExtResource("5_pif6q"), ExtResource("6_0u2sc")])
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_eau5n")
