@@ -1,5 +1,5 @@
 extends Ingrediente
-class_name RedJaneERROR
+class_name Inseto
 
 @export var velocidade : float = 1
 
@@ -20,10 +20,12 @@ var proxima_acao : String
 func _ready():
 	add_to_group("carregavel")
 	animacao.play("idle")
-	#ingrediente = "Red_Jane"
 	
 	posicao_alvo = position
 	reset_timer()
+
+func setup(novo_ingrediente:Ingrediente_Res):
+	ingrediente = novo_ingrediente
 
 func _process(delta):
 	if not is_agindo and not is_carregado and not is_pensando:
