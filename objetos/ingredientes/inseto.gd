@@ -79,6 +79,7 @@ func depositar():
 	colisao.disabled = true
 	is_carregado = true
 	animacao.visible = false
+	call_deferred("queue_free")
 
 func reset_timer():
 	is_pensando = true

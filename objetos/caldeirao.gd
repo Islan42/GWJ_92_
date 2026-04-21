@@ -10,7 +10,7 @@ signal instanciar_pocao(pocao, posicao)
 @onready var barra_progresso : ProgressBar = $ProgressBar
 @onready var ui_caldeirao : Control = $ui_caldeirao
 
-var lista_ingredientes : Array
+var lista_ingredientes : Array[Ingrediente_Res]
 var proxima_pocao : Receita
 var tempo_decorrido : float = 0
 var tempo_total : float = 0
@@ -24,23 +24,23 @@ func _process(delta):
 func caldeirao_cheio() -> bool:
 	return lista_ingredientes.size() >= capacidade_total
 
-func add_ingrediente(ingrediente : Object):
+func add_ingrediente(ingrediente : Ingrediente_Res):
 	if not caldeirao_cheio():
 		lista_ingredientes.append(ingrediente)
 		#print(lista_ingredientes)
-		ui_caldeirao.adicionar_item(ingrediente.ingrediente.nome)
+		ui_caldeirao.adicionar_item(ingrediente.nome)
 		checar_ingredientes()
 		preparar_pocao()
 
 func checar_ingredientes():
 	#proxima_pocao = null
 	for receita in receitas:
-		var copia_ingredientes_caldeirao : Array = lista_ingredientes.duplicate()
-		var copia_ingredientes_receita : Array = receita.ingredientes.duplicate()
+		var copia_ingredientes_caldeirao : Array[Ingrediente_Res] = lista_ingredientes.duplicate()
+		var copia_ingredientes_receita : Array[Ingrediente_Res] = receita.ingredientes.duplicate()
 		
 		for ingrediente_caldeirao in copia_ingredientes_caldeirao:
-			if copia_ingredientes_receita.has(ingrediente_caldeirao.ingrediente):
-				copia_ingredientes_receita.erase(ingrediente_caldeirao.ingrediente)
+			if copia_ingredientes_receita.has(ingrediente_caldeirao):
+				copia_ingredientes_receita.erase(ingrediente_caldeirao)
 		
 		if copia_ingredientes_receita.is_empty():
 			print("Possui todos os requisitos")
@@ -57,7 +57,7 @@ func preparar_pocao():
 func esvaziar_caldeirao():
 	for item in lista_ingredientes:
 		item.call_deferred("queue_free")
-	lista_ingredientes = Array()
+	lista_ingredientes = []
 	ui_caldeirao.esvaziar_ui()
 
 func _on_tempo_cozimento_timeout():

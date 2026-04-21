@@ -47,13 +47,14 @@ func calcular_acao():
 				agindo = true
 				colisao_area_ataque.disabled = false
 			elif objeto is Caldeirao and not objeto.caldeirao_cheio(): #TALVEZ Verificar se é ingrediente
-				objeto.add_ingrediente(objeto_carregado)
-				remove_child(objeto_carregado)
-				objeto.add_child(objeto_carregado)
-				
-				objeto_carregado.depositar()
-				carregando_objeto = false
-				objeto_carregado = null
+				if objeto_carregado is Ingrediente:
+					objeto.add_ingrediente(objeto_carregado.ingrediente)
+					remove_child(objeto_carregado)
+					#objeto.add_child(objeto_carregado)
+					
+					objeto_carregado.depositar()
+					carregando_objeto = false
+					objeto_carregado = null
 			elif objeto_carregado is Pocao:
 				objeto_carregado.ativar_efeito_primario(self)
 				

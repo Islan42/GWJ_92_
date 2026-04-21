@@ -26,4 +26,5 @@ func largar():
 func depositar():
 	colisao.disabled = true
 	sprite.visible = false
+	call_deferred("queue_free")
 
