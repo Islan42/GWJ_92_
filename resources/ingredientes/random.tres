@@ -1,8 +1,13 @@
-[gd_resource type="Resource" script_class="Ingrediente_Res" load_steps=2 format=3 uid="uid://brcgwgtd7n86n"]
+[gd_resource type="Resource" script_class="Ingrediente_Res_Random" load_steps=6 format=3 uid="uid://jpnehi30qb83"]
 
-[ext_resource type="Script" path="res://ingrediente_res.gd" id="1_q1e3j"]
+[ext_resource type="Script" path="res://scripts/res_ingrediente_random.gd" id="1_1dpf2"]
+[ext_resource type="Resource" uid="uid://r6t0ji3ptuq8" path="res://resources/ingredientes/greenet.tres" id="1_scxd3"]
+[ext_resource type="Resource" uid="uid://dem3bi85i6hdl" path="res://resources/ingredientes/orangine.tres" id="2_xsnc0"]
+[ext_resource type="Resource" uid="uid://cyrvob02u6jks" path="res://resources/ingredientes/purplezite.tres" id="3_8i17b"]
+[ext_resource type="Resource" uid="uid://3fowjirdpgnx" path="res://resources/ingredientes/red_jane.tres" id="4_a2dpo"]
 
 [resource]
-script = ExtResource("1_q1e3j")
+script = ExtResource("1_1dpf2")
+opcoes = Array[Resource("res://ingrediente_res.gd")]([ExtResource("1_scxd3"), ExtResource("2_xsnc0"), ExtResource("3_8i17b"), ExtResource("4_a2dpo")])
 nome = "Random"
 tipo = 2

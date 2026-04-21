@@ -17,9 +17,10 @@ func _ready():
 
 
 func _on_level_instanciar_fruta(drop : Ingrediente_Res, posicao):
-	if drop.tipo == Ingrediente_Res.tipos.RANDOM:
-		pass
-	elif drop.tipo == Ingrediente_Res.tipos.INSETO:
+	#if drop.tipo == Ingrediente_Res.tipos.RANDOM:
+	#	drop = drop.pick_random()
+	
+	if drop.tipo == Ingrediente_Res.tipos.INSETO:
 		var novo_inseto : Inseto = INSETO.instantiate()
 		get_tree().current_scene.add_child(novo_inseto)
 		novo_inseto.global_position = posicao

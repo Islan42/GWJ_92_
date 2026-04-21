@@ -18,7 +18,11 @@ func colher():
 		sprite.frame = 1
 		cooldown_timer.start(cooldown)
 		
-		instanciar_fruta.emit(drops,global_position)
+		if drops is Ingrediente_Res_Random:
+			var new_drop = drops.pick_random()
+			instanciar_fruta.emit(new_drop,global_position)
+		else:
+			instanciar_fruta.emit(drops,global_position)
 
 func _on_cooldown_timeout():
 	colisao.disabled = false
