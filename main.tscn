@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://3r307sg2foex" path="res://personagens/heroi.tscn" id="1_3igls"]
 [ext_resource type="Script" path="res://main.gd" id="1_i610v"]
-[ext_resource type="PackedScene" uid="uid://b7qmplxcfpegc" path="res://gui/receitas.tscn" id="5_g1q74"]
+[ext_resource type="PackedScene" uid="uid://legmva8eq8w7" path="res://gui/interface_principal.tscn" id="3_hpmyl"]
 [ext_resource type="PackedScene" uid="uid://yg2fwbwxll8w" path="res://levels/level_0.tscn" id="5_rnn7m"]
 
 [node name="Main" type="Node2D"]
@@ -12,7 +12,7 @@ script = ExtResource("1_i610v")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="Receitas" parent="CanvasLayer" instance=ExtResource("5_g1q74")]
+[node name="InterfacePrincipal" parent="CanvasLayer" instance=ExtResource("3_hpmyl")]
 
 [node name="MapaAtual" type="Node2D" parent="."]
 

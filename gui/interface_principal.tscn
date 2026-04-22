@@ -1,0 +1,40 @@
+[gd_scene load_steps=4 format=3 uid="uid://legmva8eq8w7"]
+
+[ext_resource type="PackedScene" uid="uid://b7qmplxcfpegc" path="res://gui/receitas.tscn" id="1_o8q8d"]
+[ext_resource type="PackedScene" uid="uid://v71e5bcfgph" path="res://gui/hud.tscn" id="2_2tsjw"]
+[ext_resource type="PackedScene" uid="uid://tsvm2cyk45xr" path="res://gui/mensageiro.tscn" id="3_6wuiw"]
+
+[node name="InterfacePrincipal" type="MarginContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="HUD" parent="VBoxContainer" instance=ExtResource("2_2tsjw")]
+layout_mode = 2
+
+[node name="Control" type="Control" parent="VBoxContainer"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 3
+
+[node name="Receitas" parent="VBoxContainer/Control" instance=ExtResource("1_o8q8d")]
+visible = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+grow_horizontal = 2
+size_flags_horizontal = 0
+size_flags_vertical = 3
+
+[node name="Mensageiro" parent="VBoxContainer" instance=ExtResource("3_6wuiw")]
+layout_mode = 2
