@@ -10,6 +10,3 @@
 [resource]
 script = ExtResource("1_hxwt7")
 lista = Array[Resource("res://pocao_res.gd")]([ExtResource("1_adjr5"), ExtResource("3_yb3dl"), ExtResource("2_50bw3"), ExtResource("4_hk6dd"), ExtResource("5_qfbj7")])
-nome = ""
-efeito_primario = ""
-efeito_secundario = ""
