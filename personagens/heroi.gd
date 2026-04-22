@@ -18,6 +18,8 @@ var agindo : bool = false
 var tempo_parado : float = 0
 var carregando_objeto : bool = false
 var objeto_carregado : Object
+var pressao_andar : float = 0
+var keep_momentum : bool = false
 
 func _ready():
 	position = Vector2(32,32)
@@ -30,9 +32,10 @@ func _ready():
 func _process(delta):
 	if position.is_equal_approx(posicao_alvo):
 		calcular_acao()
-		calcular_movimento()
+		calcular_movimento(delta)
 	else:
 		position = position.move_toward(posicao_alvo, 64 * velocidade * delta)
+		keep_momentum = true
 	animar()
 
 func calcular_acao():
@@ -75,7 +78,7 @@ func calcular_acao():
 				objeto.position = Vector2(0,-64)
 				objeto_carregado = objeto
 
-func calcular_movimento():
+func calcular_movimento(delta):
 	raycast.force_raycast_update()
 	direcao = Vector2.ZERO
 	if not agindo:
@@ -95,12 +98,18 @@ func calcular_movimento():
 	if direcao != Vector2.ZERO:
 		#print(raycast.is_colliding())
 		if direcao == direcao_olhar and not raycast.is_colliding():
-			posicao_alvo += direcao * 64
+			if pressao_andar >= 0.25 or keep_momentum == true :
+				posicao_alvo += direcao * 64
+			else:
+				pressao_andar += delta
 		else:
 			#print(direcao_olhar)
 			direcao_olhar = direcao
 			raycast.target_position = direcao_olhar * 64
 			raycast.force_raycast_update()
+			pressao_andar = 0
+	else:
+		keep_momentum = false
 
 func animar():
 	var nome_animacao : String = ""

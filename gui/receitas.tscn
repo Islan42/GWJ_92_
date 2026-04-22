@@ -4,6 +4,7 @@
 [ext_resource type="Resource" uid="uid://dmw4mp5lwvhyq" path="res://resources/pocoes/lista_padrao_pocoes.tres" id="2_t5b7p"]
 
 [node name="Receitas" type="Control"]
+visible = false
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 3
 anchors_preset = 9
