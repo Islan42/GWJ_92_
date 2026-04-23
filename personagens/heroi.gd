@@ -1,10 +1,11 @@
 extends Area2D
 class_name Heroi
 
-@export var velocidade : float = 4
-@export var hp : int = 5
-@export var mana : int = 0
-@export var ataque : int = 1
+#@export var velocidade : float = 4
+#@export var hp : int = 5
+#@export var mana : int = 0
+#@export var ataque : int = 1
+@export var atributos : AtributosPersonagem
 
 @onready var animacao : AnimatedSprite2D = $AnimatedSprite2D
 @onready var raycast : RayCast2D = $RayCast2D
@@ -34,7 +35,7 @@ func _process(delta):
 		calcular_acao()
 		calcular_movimento(delta)
 	else:
-		position = position.move_toward(posicao_alvo, 64 * velocidade * delta)
+		position = position.move_toward(posicao_alvo, 64 * atributos.velocidade_movimento * delta)
 		keep_momentum = true
 	animar()
 
@@ -155,14 +156,14 @@ func largar_item():
 		objeto_carregado = null
 
 func tomar_dano():
-	hp -= 1
-	print(hp)
+	atributos.curar(-1)
+	#print(atributos.vida)
 
 func curar(valor:int):
-	hp += valor
+	atributos.curar(valor)
 
 func recuperar_mana(valor: int):
-	mana += valor
+	atributos.recuperar_mana(valor)
 
 func _on_animated_sprite_2d_animation_finished():
 	if animacao.animation.contains("ataque"):

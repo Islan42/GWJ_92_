@@ -26,23 +26,23 @@ func ativar_efeito_primario(heroi : Heroi):
 		"Poção de Mana":
 			heroi.recuperar_mana(2)
 		"Poção do Vento":
-			heroi.velocidade += 2
+			heroi.atributos.ganhar_velocidade(2)
 			get_tree().create_timer(20).timeout.connect(func(): 
 				if is_instance_valid(heroi):
-					heroi.velocidade -= 2
+					heroi.atributos.ganhar_velocidade(-2)
 					print("passou")
 			)
 		"Poção do Fogo":
-			heroi.ataque += 1
+			heroi.atributos.ganhar_forca(1)
 			get_tree().create_timer(15).timeout.connect(func(): 
 				if is_instance_valid(heroi):
-					heroi.ataque -= 1
+					heroi.atributos.ganhar_forca(-1)
 			)
 		"Poção do Fogo Fogo":
-			heroi["ataque"] += 2
+			heroi.atributos.ganhar_forca(2)
 			get_tree().create_timer(20).timeout.connect(func(): 
 				if is_instance_valid(heroi):
-					heroi.ataque -= 2
+					heroi.atributos.ganhar_forca(-2)
 			)
 	call_deferred("queue_free")
 
