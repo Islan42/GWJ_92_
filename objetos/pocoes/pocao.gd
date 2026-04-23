@@ -16,8 +16,6 @@ func _ready():
 func setup(nova_pocao : Pocao_Res):
 	pocao_res = nova_pocao
 	sprite.texture = pocao_res.ui_sprite
-	#sprite.frame = sprites_pocoes[tipos_pocao[pocao_res.nome][2]] 
-	#sprite.frame = sprites_pocoes[tipos_pocao[nome][2]] 
 
 func ativar_efeito_primario(heroi : Heroi):
 	match pocao_res.nome:
