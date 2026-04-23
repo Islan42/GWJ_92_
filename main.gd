@@ -9,6 +9,8 @@ const POCAO = preload("res://objetos/pocoes/pocao.tscn")
 const LEVEL0 = preload("res://levels/level_0.tscn")
 const LEVEL1 = preload("res://levels/level_1.tscn")
 
+@export var game_data : GameData
+
 @onready var heroi : Heroi = $Heroi
 @onready var mapa_atual : Node2D = $MapaAtual
 

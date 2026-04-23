@@ -1,12 +1,14 @@
-[gd_scene load_steps=5 format=3 uid="uid://cp23dd58dux8o"]
+[gd_scene load_steps=6 format=3 uid="uid://cp23dd58dux8o"]
 
 [ext_resource type="PackedScene" uid="uid://3r307sg2foex" path="res://personagens/heroi.tscn" id="1_3igls"]
 [ext_resource type="Script" path="res://main.gd" id="1_i610v"]
+[ext_resource type="Resource" uid="uid://co1ctbolnasw7" path="res://resources/game_data/general_game_data.tres" id="2_nrqwu"]
 [ext_resource type="PackedScene" uid="uid://legmva8eq8w7" path="res://gui/interface_principal.tscn" id="3_hpmyl"]
 [ext_resource type="PackedScene" uid="uid://yg2fwbwxll8w" path="res://levels/level_0.tscn" id="5_rnn7m"]
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_i610v")
+game_data = ExtResource("2_nrqwu")
 
 [node name="Heroi" parent="." instance=ExtResource("1_3igls")]
 

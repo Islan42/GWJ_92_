@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://legmva8eq8w7"]
+[gd_scene load_steps=5 format=3 uid="uid://legmva8eq8w7"]
 
 [ext_resource type="PackedScene" uid="uid://b7qmplxcfpegc" path="res://gui/receitas.tscn" id="1_o8q8d"]
 [ext_resource type="PackedScene" uid="uid://v71e5bcfgph" path="res://gui/hud.tscn" id="2_2tsjw"]
 [ext_resource type="PackedScene" uid="uid://tsvm2cyk45xr" path="res://gui/mensageiro.tscn" id="3_6wuiw"]
+[ext_resource type="PackedScene" uid="uid://ccmlcryj4f6bx" path="res://gui/score_hud.tscn" id="4_oole0"]
 
 [node name="InterfacePrincipal" type="MarginContainer"]
 anchors_preset = 15
@@ -36,4 +37,9 @@ size_flags_horizontal = 0
 size_flags_vertical = 3
 
 [node name="Mensageiro" parent="VBoxContainer" instance=ExtResource("3_6wuiw")]
+visible = false
 layout_mode = 2
+
+[node name="ScoreHUD" parent="." instance=ExtResource("4_oole0")]
+layout_mode = 2
+size_flags_horizontal = 1
