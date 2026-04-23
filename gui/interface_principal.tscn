@@ -28,7 +28,6 @@ size_flags_horizontal = 0
 size_flags_vertical = 3
 
 [node name="Receitas" parent="VBoxContainer/Control" instance=ExtResource("1_o8q8d")]
-visible = true
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0

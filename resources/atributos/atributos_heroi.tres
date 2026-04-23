@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="AtributosPersonagem" load_steps=2 format=3 uid="uid://dkv7ud181bx7v"]
+
+[ext_resource type="Script" path="res://scripts/atributos_personagem.gd" id="1_scjc6"]
+
+[resource]
+script = ExtResource("1_scjc6")
+vida = 3
+vida_maxima = 5
+forca = 2
+mana = 0
+mana_maxima = 5
+velocidade_movimento = 4
