@@ -1,6 +1,8 @@
 extends Area2D
 class_name Demoin
 
+signal morreu(being : Area2D)
+
 @export var velocidade : float = 3.0
 @export var hp : int = 2
 
@@ -75,6 +77,7 @@ func atacar(area):
 func tomar_dano():
 	hp -= 1
 	if hp <= 0:
+		morreu.emit(self)
 		call_deferred("queue_free")
 
 func _on_timer_atack_timeout():

@@ -5,6 +5,7 @@ signal instanciar_pocao(pocao : Pocao_Res, posicao)
 
 @export var pocoes : Pocao_Res_Lista
 @export var capacidade_total : int = 5
+@export var game_data : GameData
 
 @onready var tempo_cozimento_timer : Timer = $TempoCozimento
 @onready var barra_progresso : ProgressBar = $ProgressBar
@@ -62,6 +63,7 @@ func esvaziar_caldeirao():
 
 func _on_tempo_cozimento_timeout():
 	if proxima_pocao != null:
+		game_data.adicionar_score(5 * proxima_pocao.receita.ingredientes.size())
 		print(proxima_pocao.nome)
 		instanciar_pocao.emit(proxima_pocao, global_position)
 		print("Emitiu sinal")

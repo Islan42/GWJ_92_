@@ -51,7 +51,9 @@ position = Vector2(608, -96)
 [node name="Caldeirao2" parent="Caldeiroes" instance=ExtResource("2_0htk6")]
 position = Vector2(800, 96)
 
-[node name="Demoin" parent="." instance=ExtResource("4_670to")]
+[node name="Inimigos" type="Node2D" parent="."]
+
+[node name="Demoin" parent="Inimigos" instance=ExtResource("4_670to")]
 position = Vector2(1632, -224)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]

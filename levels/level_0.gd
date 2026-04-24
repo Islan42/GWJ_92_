@@ -2,6 +2,7 @@ extends Node2D
 
 signal instanciar_fruta(nome, posicao)
 signal instanciar_pocao(pocao, posicao)
+signal inimigo_morreu(being : Area2D)
 signal chamar_proxima_fase
 
 @onready var label : RichTextLabel = $CanvasLayer/Control/MarginContainer/RichTextLabel
@@ -19,6 +20,11 @@ func _ready():
 	
 	for caldeirao : Caldeirao in $Caldeiroes.get_children():
 		caldeirao.instanciar_pocao.connect(on_caldeirao_instanciar_pocao)
+	
+	for inimigo in $Inimigos.get_children():
+		inimigo.morreu.connect(func (being : Area2D):
+			inimigo_morreu.emit(being)
+		)
 
 func _process(delta):
 	if label.visible_ratio < 1.0:

@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://dxe0nktb72bpe"]
+[gd_scene load_steps=5 format=3 uid="uid://dxe0nktb72bpe"]
 
 [ext_resource type="Script" path="res://objetos/planta.gd" id="1_5wne6"]
 [ext_resource type="Texture2D" uid="uid://bnu81vfgjw1wi" path="res://objetos/planta.png" id="1_a5qdy"]
+[ext_resource type="Resource" uid="uid://co1ctbolnasw7" path="res://resources/game_data/general_game_data.tres" id="2_4p6t4"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7e7kq"]
 size = Vector2(64, 64)
@@ -9,6 +10,7 @@ size = Vector2(64, 64)
 [node name="Planta" type="Area2D"]
 collision_layer = 4
 script = ExtResource("1_5wne6")
+game_data = ExtResource("2_4p6t4")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_7e7kq")

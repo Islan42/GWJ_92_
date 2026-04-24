@@ -21,5 +21,6 @@ game_data = ExtResource("2_nrqwu")
 [node name="Level_0" parent="MapaAtual" instance=ExtResource("5_rnn7m")]
 
 [connection signal="chamar_proxima_fase" from="MapaAtual/Level_0" to="." method="_on_level_chamar_proxima_fase"]
+[connection signal="inimigo_morreu" from="MapaAtual/Level_0" to="." method="_on_level_inimigo_morreu"]
 [connection signal="instanciar_fruta" from="MapaAtual/Level_0" to="." method="_on_level_instanciar_fruta"]
 [connection signal="instanciar_pocao" from="MapaAtual/Level_0" to="." method="_on_level_instanciar_pocao"]

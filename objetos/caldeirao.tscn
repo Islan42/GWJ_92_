@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://bt338mse2bg1x"]
+[gd_scene load_steps=7 format=3 uid="uid://bt338mse2bg1x"]
 
 [ext_resource type="Script" path="res://objetos/caldeirao.gd" id="1_euj65"]
 [ext_resource type="Texture2D" uid="uid://bscfmthsb4xqk" path="res://objetos/caldeirao.png" id="1_ie7xy"]
 [ext_resource type="Resource" uid="uid://dmw4mp5lwvhyq" path="res://resources/pocoes/lista_padrao_pocoes.tres" id="2_85h0k"]
+[ext_resource type="Resource" uid="uid://co1ctbolnasw7" path="res://resources/game_data/general_game_data.tres" id="3_g6ejv"]
 [ext_resource type="PackedScene" uid="uid://c8ne2okcrn75t" path="res://gui/ui_caldeirao_.tscn" id="8_g6v76"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_eau5n"]
@@ -12,6 +13,7 @@ size = Vector2(64, 64)
 collision_layer = 4
 script = ExtResource("1_euj65")
 pocoes = ExtResource("2_85h0k")
+game_data = ExtResource("3_g6ejv")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_eau5n")

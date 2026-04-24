@@ -38,6 +38,10 @@ func _on_level_instanciar_pocao(pocao : Pocao_Res, posicao):
 	nova_pocao.setup(pocao)
 
 
+func _on_level_inimigo_morreu(being : Area2D):
+	game_data.adicionar_score(10)
+
+
 func _on_level_chamar_proxima_fase():
 	var next_level = LEVEL1.instantiate()
 	mapa_atual.remove_child($MapaAtual/Level_0)
@@ -48,3 +52,4 @@ func _on_level_chamar_proxima_fase():
 	
 	next_level.instanciar_fruta.connect(_on_level_instanciar_fruta)
 	next_level.instanciar_pocao.connect(_on_level_instanciar_pocao)
+	next_level.inimigo_morreu.connect(_on_level_inimigo_morreu)

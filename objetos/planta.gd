@@ -3,7 +3,7 @@ class_name Planta
 
 @export var cooldown : float = 10.0
 @export var drops : Ingrediente_Res
-#@export var drops : String = "random"
+@export var game_data : GameData
 
 signal instanciar_fruta(drop, posicao)
 
@@ -23,6 +23,8 @@ func colher():
 			instanciar_fruta.emit(new_drop,global_position)
 		else:
 			instanciar_fruta.emit(drops,global_position)
+		
+		game_data.adicionar_score(1)
 
 func _on_cooldown_timeout():
 	colisao.disabled = false
