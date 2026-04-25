@@ -26,13 +26,20 @@ func _ready():
 		new_hbox.set_anchors_preset(PRESET_FULL_RECT)
 		new_control.add_child(new_hbox)
 		
+		var new_pocao_texture = TextureRect.new()
+		new_pocao_texture.custom_minimum_size = Vector2(16,0)
+		new_pocao_texture.size_flags_vertical = Control.SIZE_SHRINK_CENTER
+		new_pocao_texture.texture = pocao.ui_sprite
+		new_hbox.add_child(new_pocao_texture)
+		
 		var new_label = Label.new()
 		new_label.size_flags_vertical = Control.SIZE_FILL
 		new_label.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
 		new_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_LEFT
 		new_label.add_theme_font_size_override("font_size", 12)
-		new_label.text = pocao.nome + ": "
+		new_label.text = "=>"
 		new_hbox.add_child(new_label)
+		
 		
 		for item in pocao.receita.ingredientes:
 			var new_texture : TextureRect = TextureRect.new()
