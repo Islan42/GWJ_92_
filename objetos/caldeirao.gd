@@ -63,7 +63,7 @@ func esvaziar_caldeirao():
 
 func _on_tempo_cozimento_timeout():
 	if proxima_pocao != null:
-		game_data.adicionar_score(5 * proxima_pocao.receita.ingredientes.size())
+		game_data.adicionar_score(5 * lista_ingredientes.size())
 		print(proxima_pocao.nome)
 		instanciar_pocao.emit(proxima_pocao, global_position)
 		print("Emitiu sinal")

@@ -637,6 +637,10 @@ shape = SubResource("RectangleShape2D_vfhvs")
 collision_mask = 6
 collide_with_areas = true
 
+[node name="RayCastCarregaveis" type="RayCast2D" parent="."]
+collision_mask = 16
+collide_with_areas = true
+
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(4, 4)
 sprite_frames = SubResource("SpriteFrames_r34li")

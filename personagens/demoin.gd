@@ -4,7 +4,7 @@ class_name Demoin
 signal morreu(being : Area2D)
 
 @export var velocidade : float = 3.0
-@export var hp : int = 2
+@export var hp : int = 3
 
 @onready var animacao : AnimatedSprite2D = $AnimatedSprite2D
 @onready var colisao : CollisionShape2D = $CollisionShape2D
@@ -65,7 +65,7 @@ func atacar(area):
 		timer_atack.start(3)
 		
 		if area.has_method("tomar_dano"):
-			area.tomar_dano()
+			area.tomar_dano(1)
 		
 		if ataque_1:
 			animacao.play("ataque_1_frente")
@@ -74,8 +74,8 @@ func atacar(area):
 			animacao.play("ataque_2_frente")
 			ataque_1 = true
 
-func tomar_dano():
-	hp -= 1
+func tomar_dano(forca : int):
+	hp -= forca
 	if hp <= 0:
 		morreu.emit(self)
 		call_deferred("queue_free")

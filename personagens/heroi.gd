@@ -9,6 +9,7 @@ class_name Heroi
 
 @onready var animacao : AnimatedSprite2D = $AnimatedSprite2D
 @onready var raycast : RayCast2D = $RayCast2D
+@onready var raycast_car : RayCast2D = $RayCastCarregaveis
 @onready var area_ataque : Area2D = $AreaAtaque
 @onready var colisao_area_ataque : CollisionShape2D = $AreaAtaque/CollisionShape2D
 
@@ -27,6 +28,7 @@ func _ready():
 	posicao_alvo = position
 	direcao_olhar = Vector2.RIGHT
 	raycast.target_position = Vector2.RIGHT * 64
+	raycast_car.target_position = Vector2.RIGHT * 64
 	colisao_area_ataque.disabled = true
 	#animacao.play("normal_idle_frente")
 
@@ -40,11 +42,11 @@ func _process(delta):
 	animar()
 
 func calcular_acao():
-	var objeto = null
 	raycast.force_raycast_update()
-	if raycast.is_colliding():
-		objeto = raycast.get_collider()
-		
+	raycast_car.force_raycast_update()
+	var objeto = raycast.get_collider()
+	var objeto_car = raycast_car.get_collider()
+	
 	if not agindo:
 		if Input.is_action_just_pressed("acao"):
 			if not carregando_objeto:
@@ -59,6 +61,13 @@ func calcular_acao():
 					objeto_carregado.depositar()
 					carregando_objeto = false
 					objeto_carregado = null
+				elif objeto_carregado is Pocao:
+					for ingrediente in objeto_carregado.pocao_res.receita.ingredientes:
+						objeto.add_ingrediente(ingrediente)
+					remove_child(objeto_carregado)
+					objeto_carregado.depositar()
+					carregando_objeto = false
+					objeto_carregado = null
 			elif objeto_carregado is Pocao:
 				objeto_carregado.ativar_efeito_primario(self)
 				
@@ -67,20 +76,21 @@ func calcular_acao():
 				objeto_carregado = null
 				
 		elif Input.is_action_just_pressed("carregar_item"):
-			if objeto is Planta: # SE DER TEMPO, TIRAR QUANDO ADICIONAR O ATAQUE
-				objeto.colher()
 			if carregando_objeto:
 				largar_item()
-			elif objeto and objeto.is_in_group("carregavel"):
+			elif objeto_car and objeto_car.is_in_group("carregavel"):
 				carregando_objeto = true
-				objeto.levantar()
-				objeto.get_parent().remove_child(objeto)
-				add_child(objeto)
-				objeto.position = Vector2(0,-64)
-				objeto_carregado = objeto
+				objeto_car.levantar()
+				objeto_car.get_parent().remove_child(objeto_car)
+				add_child(objeto_car)
+				objeto_car.position = Vector2(0,-64)
+				objeto_carregado = objeto_car
+			elif objeto is Planta:
+				objeto.colher()
 
 func calcular_movimento(delta):
 	raycast.force_raycast_update()
+	raycast_car.force_raycast_update()
 	direcao = Vector2.ZERO
 	if not agindo:
 		# is action just pressed + buffer
@@ -98,7 +108,7 @@ func calcular_movimento(delta):
 			area_ataque.rotation = PI
 	if direcao != Vector2.ZERO:
 		#print(raycast.is_colliding())
-		if direcao == direcao_olhar and not raycast.is_colliding():
+		if direcao == direcao_olhar and not raycast.is_colliding() and not raycast_car.is_colliding():
 			if pressao_andar >= 0.25 or keep_momentum == true :
 				posicao_alvo += direcao * 64
 			else:
@@ -108,6 +118,8 @@ func calcular_movimento(delta):
 			direcao_olhar = direcao
 			raycast.target_position = direcao_olhar * 64
 			raycast.force_raycast_update()
+			raycast_car.target_position = direcao_olhar * 64
+			raycast_car.force_raycast_update()
 			pressao_andar = 0
 	else:
 		keep_momentum = false
@@ -147,7 +159,7 @@ func animar():
 		animacao.play(nome_animacao)
 
 func largar_item():
-	if not raycast.is_colliding():
+	if not (raycast.is_colliding() or raycast_car.is_colliding()):
 		carregando_objeto = false
 		remove_child(objeto_carregado)
 		get_tree().current_scene.add_child(objeto_carregado)
@@ -155,8 +167,8 @@ func largar_item():
 		objeto_carregado.largar()
 		objeto_carregado = null
 
-func tomar_dano():
-	atributos.curar(-1)
+func tomar_dano(forca : int):
+	atributos.curar(-1 * forca)
 	#print(atributos.vida)
 
 func curar(valor:int):
@@ -174,4 +186,4 @@ func _on_area_ataque_area_entered(area):
 	if area.has_method("colher"):
 		area.colher()
 	elif area.has_method("tomar_dano"):
-		area.tomar_dano()
+		area.tomar_dano(atributos.forca)
