@@ -1,7 +1,8 @@
-[gd_resource type="Resource" script_class="Pocao_Res" load_steps=5 format=3 uid="uid://xq7y0bl2xlw6"]
+[gd_resource type="Resource" script_class="Pocao_Res" load_steps=6 format=3 uid="uid://xq7y0bl2xlw6"]
 
 [ext_resource type="Script" path="res://pocao_res.gd" id="1_ne1tj"]
 [ext_resource type="Resource" uid="uid://cnkurei3v8561" path="res://resources/receitas/pocao_cura.tres" id="1_xegtw"]
+[ext_resource type="Resource" uid="uid://b0qkoel5nl3oa" path="res://resources/efeitos/efeito_cura.tres" id="2_iia5w"]
 [ext_resource type="Texture2D" uid="uid://l2t0fwllt2u3" path="res://gui/ingredientes.png" id="3_5oc0k"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_0gsvi"]
@@ -13,5 +14,4 @@ script = ExtResource("1_ne1tj")
 nome = "Poção de Cura"
 receita = ExtResource("1_xegtw")
 ui_sprite = SubResource("AtlasTexture_0gsvi")
-efeito_primario = "Cura 2 corações"
-efeito_secundario = ""
+res_efeito = ExtResource("2_iia5w")

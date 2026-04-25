@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="EfeitoVento" load_steps=2 format=3 uid="uid://d3225bxtif0gk"]
+
+[ext_resource type="Script" path="res://resources/efeitos/efeito_vento.gd" id="1_47ruf"]
+
+[resource]
+script = ExtResource("1_47ruf")
+fator_velocidade = 2
+fator_tempo = 20
+desc_efeito_primario = "Aumenta a velocidade em 2 durante 20 segundos."
+desc_efeito_secundario = ""

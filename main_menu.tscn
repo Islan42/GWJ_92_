@@ -4,6 +4,21 @@
 [ext_resource type="Texture2D" uid="uid://2sppf1hw55fq" path="res://gui/buttons/new_game_button.png" id="1_ljgm2"]
 [ext_resource type="Script" path="res://main_menu.gd" id="1_rlcjy"]
 
+[sub_resource type="Animation" id="Animation_gi38x"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MarginContainer/VBoxContainer/Control/main_title:texture:region")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Rect2(480, 0, 480, 180)]
+}
+
 [sub_resource type="Animation" id="Animation_0vw4y"]
 resource_name = "idle"
 length = 2.0
@@ -19,21 +34,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
 "update": 1,
 "values": [Rect2(0, 0, 480, 180), Rect2(480, 0, 480, 180), Rect2(960, 0, 480, 180), Rect2(1440, 0, 480, 180), Rect2(1440, 0, 480, 180), Rect2(960, 0, 480, 180), Rect2(480, 0, 480, 180)]
-}
-
-[sub_resource type="Animation" id="Animation_gi38x"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("MarginContainer/VBoxContainer/Control/main_title:texture:region")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Rect2(480, 0, 480, 180)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ijooq"]

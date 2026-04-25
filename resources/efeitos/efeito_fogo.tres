@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="EfeitoFogo" load_steps=2 format=3 uid="uid://cevoeeukocjto"]
+
+[ext_resource type="Script" path="res://resources/efeitos/efeito_fogo.gd" id="1_kkj6d"]
+
+[resource]
+script = ExtResource("1_kkj6d")
+fator_forca = 1
+fator_tempo = 15
+desc_efeito_primario = "Aumenta a Força em 1 durante 15 segundos."
+desc_efeito_secundario = ""

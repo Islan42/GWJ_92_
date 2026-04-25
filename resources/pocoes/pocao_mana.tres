@@ -1,7 +1,8 @@
-[gd_resource type="Resource" script_class="Pocao_Res" load_steps=5 format=3 uid="uid://b750ffu13kkut"]
+[gd_resource type="Resource" script_class="Pocao_Res" load_steps=6 format=3 uid="uid://b750ffu13kkut"]
 
 [ext_resource type="Script" path="res://pocao_res.gd" id="1_jvg8w"]
 [ext_resource type="Resource" uid="uid://coo6tx14cj4wm" path="res://resources/receitas/pocao_mana.tres" id="1_p8505"]
+[ext_resource type="Resource" uid="uid://bdtratsoye84" path="res://resources/efeitos/efeito_mana.tres" id="2_yvrqw"]
 [ext_resource type="Texture2D" uid="uid://l2t0fwllt2u3" path="res://gui/ingredientes.png" id="3_od12x"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_odvt6"]
@@ -13,5 +14,4 @@ script = ExtResource("1_jvg8w")
 nome = "Poção de Mana"
 receita = ExtResource("1_p8505")
 ui_sprite = SubResource("AtlasTexture_odvt6")
-efeito_primario = "Recupera 2 de Mana"
-efeito_secundario = ""
+res_efeito = ExtResource("2_yvrqw")

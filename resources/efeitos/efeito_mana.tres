@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="EfeitoMana" load_steps=2 format=3 uid="uid://bdtratsoye84"]
+
+[ext_resource type="Script" path="res://resources/efeitos/efeito_mana.gd" id="1_buejy"]
+
+[resource]
+script = ExtResource("1_buejy")
+fator_rec = 2
+desc_efeito_primario = "Recupera 2 de Mana."
+desc_efeito_secundario = ""

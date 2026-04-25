@@ -1,7 +1,8 @@
-[gd_resource type="Resource" script_class="Pocao_Res" load_steps=5 format=3 uid="uid://5jfif8moqw71"]
+[gd_resource type="Resource" script_class="Pocao_Res" load_steps=6 format=3 uid="uid://5jfif8moqw71"]
 
 [ext_resource type="Resource" uid="uid://cnohluf5htegx" path="res://resources/receitas/pocao_fogo_fogo.tres" id="1_lgtm8"]
 [ext_resource type="Script" path="res://pocao_res.gd" id="1_pxpg3"]
+[ext_resource type="Resource" uid="uid://bw0vwbaeen1p1" path="res://resources/efeitos/efeito_fogo_fogo.tres" id="2_mlmwu"]
 [ext_resource type="Texture2D" uid="uid://l2t0fwllt2u3" path="res://gui/ingredientes.png" id="3_bqifm"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_kwt8c"]
@@ -13,5 +14,4 @@ script = ExtResource("1_pxpg3")
 nome = "Poção do Fogo Fogo"
 receita = ExtResource("1_lgtm8")
 ui_sprite = SubResource("AtlasTexture_kwt8c")
-efeito_primario = "Aumenta o ataque em 2 pontos"
-efeito_secundario = "Causa dano em área"
+res_efeito = ExtResource("2_mlmwu")
