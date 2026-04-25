@@ -6,9 +6,9 @@
 [ext_resource type="PackedScene" uid="uid://outo1j2amli2" path="res://personagens/demoin.tscn" id="3_175pg"]
 [ext_resource type="PackedScene" uid="uid://bt338mse2bg1x" path="res://objetos/caldeirao.tscn" id="3_cyj3j"]
 [ext_resource type="Resource" uid="uid://dem3bi85i6hdl" path="res://resources/ingredientes/orangine.tres" id="4_x3nul"]
-[ext_resource type="PackedScene" uid="uid://la0sdc8brfy6" path="res://personagens/red_jane.tscn" id="5_6jkou"]
 [ext_resource type="Resource" uid="uid://jpnehi30qb83" path="res://resources/ingredientes/random.tres" id="5_kdlbx"]
 [ext_resource type="Resource" uid="uid://cyrvob02u6jks" path="res://resources/ingredientes/purplezite.tres" id="6_5xywo"]
+[ext_resource type="PackedScene" uid="uid://la0sdc8brfy6" path="res://objetos/ingredientes/inseto.tscn" id="8_tnxsj"]
 
 [node name="Level1" type="Node2D"]
 script = ExtResource("1_hibqt")
@@ -23,17 +23,17 @@ layer_0/tile_data = PackedInt32Array(-524304, 131073, 0, -458768, 1, 0, -393232,
 [node name="Plantas" type="Node2D" parent="."]
 
 [node name="Planta" parent="Plantas" instance=ExtResource("2_un5x5")]
-position = Vector2(-800, -360)
+position = Vector2(-800, -352)
 cooldown = 20.0
 drops = ExtResource("4_x3nul")
 
 [node name="Planta2" parent="Plantas" instance=ExtResource("2_un5x5")]
-position = Vector2(-736, -360)
+position = Vector2(-736, -352)
 cooldown = 20.0
 drops = ExtResource("4_x3nul")
 
 [node name="Planta13" parent="Plantas" instance=ExtResource("2_un5x5")]
-position = Vector2(-672, -360)
+position = Vector2(-672, -352)
 cooldown = 20.0
 drops = ExtResource("4_x3nul")
 
@@ -122,11 +122,17 @@ position = Vector2(-736, -32)
 
 [node name="Ingredientes" type="Node2D" parent="."]
 
-[node name="Red_Jane" parent="Ingredientes" instance=ExtResource("5_6jkou")]
+[node name="Inseto" parent="Ingredientes" instance=ExtResource("8_tnxsj")]
 position = Vector2(224, -96)
 
-[node name="Red_Jane2" parent="Ingredientes" instance=ExtResource("5_6jkou")]
-position = Vector2(-544, 96)
+[node name="Inseto2" parent="Ingredientes" instance=ExtResource("8_tnxsj")]
+position = Vector2(-288, -32)
+
+[node name="Inseto3" parent="Ingredientes" instance=ExtResource("8_tnxsj")]
+position = Vector2(-480, -352)
+
+[node name="Inseto4" parent="Ingredientes" instance=ExtResource("8_tnxsj")]
+position = Vector2(480, 288)
 
 [node name="Inimigos" type="Node2D" parent="."]
 

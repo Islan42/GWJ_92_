@@ -11,7 +11,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_3v00r")
-to_loop = true
+delay = 3.0
 
 [node name="ColorRect" type="ColorRect" parent="."]
 layout_mode = 1
@@ -37,5 +37,6 @@ theme_override_constants/margin_bottom = 10
 unique_name_in_owner = true
 layout_mode = 2
 theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 12
 scroll_active = false
 scroll_following = true

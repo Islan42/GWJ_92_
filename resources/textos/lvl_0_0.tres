@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="MsgBufferRes" load_steps=2 format=3 uid="uid://p4mi55o3xwmq"]
+
+[ext_resource type="Script" path="res://scripts/res_msg_buffer.gd" id="1_1dww1"]
+
+[resource]
+script = ExtResource("1_1dww1")
+buffer = Array[String](["Welcome to the Tutorial of this game. You can move around using WASD or the ARROW KEYS. Try it out!"])

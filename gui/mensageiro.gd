@@ -1,4 +1,5 @@
 extends Control
+class_name Mensageiro
 
 @export var to_loop : bool = false
 @export var delay : float = 5.0
@@ -10,10 +11,11 @@ var acumulo : float = 0
 var indice_atual : int = -1
 var msg_atual : String = ""
 var msg_buffer : Array[String] = []
+var skip_timer : bool = false
 
 func _ready():
 	reset_buffer()
-	add_buffer(["ABCDEFGHIJKLMNOPQRSTUVWXYZ", "abcdefghijklmnopqrstuvwxyz", "0123456789101112131415161718192021222324252627282930"])
+	#add_buffer(["ABCDEFGHIJKLMNOPQRSTUVWXYZ", "abcdefghijklmnopqrstuvwxyz", "0123456789101112131415161718192021222324252627282930"])
 	next_msg()
 
 func _process(delta):
@@ -25,6 +27,7 @@ func _process(delta):
 		last_acumulo = acumulo
 		#print("A")
 		get_tree().create_timer(delay).timeout.connect(next_msg)
+		skip_timer = false
 	label.visible_characters = acumulo
 
 func reset_buffer():
@@ -33,13 +36,20 @@ func reset_buffer():
 
 func add_buffer(new_array : Array[String]):
 	msg_buffer.append_array(new_array)
+	indice_atual = -1
+	next_msg()
+	skip_timer = true
 
 func next_msg():
 	if indice_atual < msg_buffer.size() - 1:
 		indice_atual += 1
-	elif to_loop:
+	elif to_loop and msg_buffer.size() > 0:
 		indice_atual = 0
 	else:
+		get_tree().create_timer(delay).timeout.connect(func():
+			if not skip_timer:
+				visible = false
+		)
 		return
 	acumulo = 0
 	label.visible_characters = acumulo

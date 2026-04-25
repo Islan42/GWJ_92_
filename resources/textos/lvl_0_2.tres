@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="MsgBufferRes" load_steps=2 format=3 uid="uid://b4nxev0s2kss5"]
+
+[ext_resource type="Script" path="res://scripts/res_msg_buffer.gd" id="1_01kyf"]
+
+[resource]
+script = ExtResource("1_01kyf")
+buffer = Array[String](["Use LEFT MOUSE BUTTON to land an atack and defeat your foes."])

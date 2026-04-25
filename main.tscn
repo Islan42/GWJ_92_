@@ -15,11 +15,13 @@ game_data = ExtResource("2_nrqwu")
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="InterfacePrincipal" parent="CanvasLayer" instance=ExtResource("3_hpmyl")]
+unique_name_in_owner = true
 
 [node name="MapaAtual" type="Node2D" parent="."]
 
 [node name="Level_0" parent="MapaAtual" instance=ExtResource("5_rnn7m")]
 
+[connection signal="chamar_mensageiro" from="MapaAtual/Level_0" to="." method="_on_level_chamar_mensageiro"]
 [connection signal="chamar_proxima_fase" from="MapaAtual/Level_0" to="." method="_on_level_chamar_proxima_fase"]
 [connection signal="inimigo_morreu" from="MapaAtual/Level_0" to="." method="_on_level_inimigo_morreu"]
 [connection signal="instanciar_fruta" from="MapaAtual/Level_0" to="." method="_on_level_instanciar_fruta"]

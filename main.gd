@@ -41,6 +41,12 @@ func _on_level_instanciar_pocao(pocao : Pocao_Res, posicao):
 func _on_level_inimigo_morreu(being : Area2D):
 	game_data.adicionar_score(10)
 
+func _on_level_chamar_mensageiro(new_buffer : Array[String]):
+	var interface : InterfacePrincipal = %InterfacePrincipal
+	interface.mensageiro.visible = true
+	interface.mensageiro.reset_buffer()
+	interface.mensageiro.add_buffer(new_buffer)
+
 
 func _on_level_chamar_proxima_fase():
 	var next_level = LEVEL1.instantiate()

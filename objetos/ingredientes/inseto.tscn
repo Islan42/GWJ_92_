@@ -70,7 +70,7 @@ animations = [{
 "speed": 1.0
 }]
 
-[node name="Red_Jane" instance=ExtResource("1_igpad")]
+[node name="Inseto" instance=ExtResource("1_igpad")]
 script = ExtResource("2_t6wr7")
 velocidade = 1.0
 ingrediente_res = ExtResource("3_n4hp7")

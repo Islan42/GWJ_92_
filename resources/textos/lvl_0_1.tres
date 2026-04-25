@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="MsgBufferRes" load_steps=2 format=3 uid="uid://dufeb7bsmav2n"]
+
+[ext_resource type="Script" path="res://scripts/res_msg_buffer.gd" id="1_7mio7"]
+
+[resource]
+script = ExtResource("1_7mio7")
+buffer = Array[String](["Use SPACEBAR next to a bush to harvest it.", "Also, use SPACEBAR next to an object to carry it around.", "While carrying a fruit you can press LEFT MOUSE BUTTON next to a cauldron do drop it there. When it have the needed ingredients it will automatically start to brew it. You can press R to see the recipes.", "Once the cauldron finish brewing it will drop a potion. Carry it an press LEFT MOUSE BUTTON to use it."])

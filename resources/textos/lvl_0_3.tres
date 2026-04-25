@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="MsgBufferRes" load_steps=2 format=3 uid="uid://bopqhos3p0jex"]
+
+[ext_resource type="Script" path="res://scripts/res_msg_buffer.gd" id="1_mrkoc"]
+
+[resource]
+script = ExtResource("1_mrkoc")
+buffer = Array[String](["Step ahead and advance to the next level."])
