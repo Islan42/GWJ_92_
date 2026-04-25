@@ -2,6 +2,7 @@ extends Ingrediente
 class_name Inseto
 
 @export var velocidade : float = 1
+@export var ingrediente_res : Ingrediente_Res
 
 @onready var animacao : AnimatedSprite2D = $AnimatedSprite2D
 @onready var colisao : CollisionShape2D = $CollisionShape2D
@@ -21,11 +22,12 @@ func _ready():
 	add_to_group("carregavel")
 	animacao.play("idle")
 	
-	posicao_alvo = position
+	setup(ingrediente_res)
 	reset_timer()
 
 func setup(novo_ingrediente:Ingrediente_Res):
 	ingrediente = novo_ingrediente
+	posicao_alvo = position
 
 func _process(delta):
 	if not is_agindo and not is_carregado and not is_pensando:
