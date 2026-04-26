@@ -1,32 +1,32 @@
 [gd_scene load_steps=12 format=3 uid="uid://la0sdc8brfy6"]
 
-[ext_resource type="PackedScene" uid="uid://cggd45xotundv" path="res://objetos/ingredientes/ingrediente.tscn" id="1_igpad"]
-[ext_resource type="Script" path="res://objetos/ingredientes/inseto.gd" id="2_t6wr7"]
-[ext_resource type="Texture2D" uid="uid://yp3cgj51qpqt" path="res://objetos/ingredientes/frutas.png" id="3_f2b7b"]
-[ext_resource type="Resource" uid="uid://3fowjirdpgnx" path="res://resources/ingredientes/red_jane.tres" id="3_n4hp7"]
+[ext_resource type="PackedScene" uid="uid://cggd45xotundv" path="res://objetos/ingredientes/ingrediente.tscn" id="1_yog7e"]
+[ext_resource type="Script" path="res://objetos/ingredientes/insetoide.gd" id="2_v2e8i"]
+[ext_resource type="Resource" uid="uid://3fowjirdpgnx" path="res://resources/ingredientes/red_jane.tres" id="3_jda4u"]
+[ext_resource type="Texture2D" uid="uid://yp3cgj51qpqt" path="res://objetos/ingredientes/frutas.png" id="4_agsf5"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_uiybg"]
-atlas = ExtResource("3_f2b7b")
+atlas = ExtResource("4_agsf5")
 region = Rect2(48, 0, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_dg5hu"]
-atlas = ExtResource("3_f2b7b")
+atlas = ExtResource("4_agsf5")
 region = Rect2(64, 0, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_if744"]
-atlas = ExtResource("3_f2b7b")
+atlas = ExtResource("4_agsf5")
 region = Rect2(96, 0, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_86my0"]
-atlas = ExtResource("3_f2b7b")
+atlas = ExtResource("4_agsf5")
 region = Rect2(64, 0, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_i5sty"]
-atlas = ExtResource("3_f2b7b")
+atlas = ExtResource("4_agsf5")
 region = Rect2(80, 0, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_l7tl1"]
-atlas = ExtResource("3_f2b7b")
+atlas = ExtResource("4_agsf5")
 region = Rect2(64, 0, 16, 16)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_sfqf3"]
@@ -70,10 +70,10 @@ animations = [{
 "speed": 1.0
 }]
 
-[node name="Inseto" instance=ExtResource("1_igpad")]
-script = ExtResource("2_t6wr7")
+[node name="Insetoide" instance=ExtResource("1_yog7e")]
+script = ExtResource("2_v2e8i")
 velocidade = 1.0
-ingrediente_res = ExtResource("3_n4hp7")
+ingrediente_res = ExtResource("3_jda4u")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." index="2"]
 scale = Vector2(4, 4)

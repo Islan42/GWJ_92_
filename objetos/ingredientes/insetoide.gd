@@ -1,5 +1,5 @@
 extends Ingrediente
-class_name Inseto
+class_name Insetoide
 
 @export var velocidade : float = 1
 @export var ingrediente_res : Ingrediente_Res
