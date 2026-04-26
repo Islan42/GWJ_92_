@@ -1,6 +1,11 @@
-[gd_resource type="Resource" script_class="EfeitoVento" load_steps=2 format=3 uid="uid://d3225bxtif0gk"]
+[gd_resource type="Resource" script_class="EfeitoVento" load_steps=4 format=3 uid="uid://d3225bxtif0gk"]
 
 [ext_resource type="Script" path="res://resources/efeitos/efeito_vento.gd" id="1_47ruf"]
+[ext_resource type="Texture2D" uid="uid://b62uo7tm7cg6n" path="res://gui/hud_icons.png" id="2_qdwf8"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yts4n"]
+atlas = ExtResource("2_qdwf8")
+region = Rect2(144, 0, 16, 16)
 
 [resource]
 script = ExtResource("1_47ruf")
@@ -8,3 +13,6 @@ fator_velocidade = 2
 fator_tempo = 20
 desc_efeito_primario = "Aumenta a velocidade em 2 durante 20 segundos."
 desc_efeito_secundario = ""
+ui_sprite = SubResource("AtlasTexture_yts4n")
+temporario = true
+ui_dica = 2

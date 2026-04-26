@@ -1,6 +1,11 @@
-[gd_resource type="Resource" script_class="EfeitoFogo" load_steps=2 format=3 uid="uid://bw0vwbaeen1p1"]
+[gd_resource type="Resource" script_class="EfeitoFogo" load_steps=4 format=3 uid="uid://bw0vwbaeen1p1"]
 
 [ext_resource type="Script" path="res://resources/efeitos/efeito_fogo.gd" id="1_l3quf"]
+[ext_resource type="Texture2D" uid="uid://b62uo7tm7cg6n" path="res://gui/hud_icons.png" id="2_cbo8y"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_auobh"]
+atlas = ExtResource("2_cbo8y")
+region = Rect2(32, 0, 16, 16)
 
 [resource]
 script = ExtResource("1_l3quf")
@@ -8,3 +13,6 @@ fator_forca = 2
 fator_tempo = 20
 desc_efeito_primario = "Aumenta a Força em 2 durante 20 segundos."
 desc_efeito_secundario = ""
+ui_sprite = SubResource("AtlasTexture_auobh")
+temporario = true
+ui_dica = 2

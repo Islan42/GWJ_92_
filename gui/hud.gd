@@ -13,7 +13,7 @@ func atualizar_atributos():
 	
 	criar_linha_atributo(atributos_jogador.vida, atributos_jogador.vida_maxima, Rect2(0,0,16,16), Rect2(16,0,16,16))
 	criar_linha_atributo(atributos_jogador.forca, atributos_jogador.forca, Rect2(32,0,16,16), Rect2(32,0,16,16))
-	criar_linha_atributo(atributos_jogador.mana, atributos_jogador.mana_maxima, Rect2(96,0,16,16), Rect2(112,0,16,16))
+	criar_linha_atributo(atributos_jogador.mana, atributos_jogador.mana_maxima, Rect2(112,0,16,16), Rect2(128,0,16,16))
 
 func criar_linha_atributo(quantidade : int, maxima : int, regiao1 : Rect2, regiao2 : Rect2):
 	var new_hbox : HBoxContainer = HBoxContainer.new()

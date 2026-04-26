@@ -40,12 +40,39 @@ func _ready():
 		new_label.text = "=>"
 		new_hbox.add_child(new_label)
 		
-		
 		for item in pocao.receita.ingredientes:
 			var new_texture : TextureRect = TextureRect.new()
 			new_texture.custom_minimum_size = Vector2(16,0)
 			new_texture.size_flags_vertical = Control.SIZE_SHRINK_CENTER
 			new_texture.texture = item.ui_sprite
+			new_hbox.add_child(new_texture)
+		
+		new_label = Label.new()
+		new_label.size_flags_vertical = Control.SIZE_FILL
+		new_label.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
+		new_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_LEFT
+		new_label.add_theme_font_size_override("font_size", 12)
+		new_label.text = "=>"
+		new_hbox.add_child(new_label)
+		
+		for i in range(pocao.res_efeito.ui_dica):
+			var new_texture : TextureRect = TextureRect.new()
+			#new_texture.custom_minimum_size = Vector2(16,16)
+			#new_texture.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
+			new_texture.size_flags_vertical = Control.SIZE_SHRINK_CENTER
+			new_texture.texture = pocao.res_efeito.ui_sprite
+			new_hbox.add_child(new_texture)
+		
+		if pocao.res_efeito.temporario:
+			var new_texture : TextureRect = TextureRect.new()
+			new_texture.custom_minimum_size = Vector2(12,12)
+			new_texture.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
+			new_texture.size_flags_vertical = Control.SIZE_SHRINK_CENTER
+			
+			var new_atlas : AtlasTexture = AtlasTexture.new()
+			new_atlas.atlas = preload("res://gui/hud_icons.png")
+			new_atlas.region = Rect2(160,0,16,16)
+			new_texture.texture = new_atlas
 			new_hbox.add_child(new_texture)
 
 func alternar_visibilidade():

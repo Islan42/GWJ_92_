@@ -1,9 +1,17 @@
-[gd_resource type="Resource" script_class="EfeitoMana" load_steps=2 format=3 uid="uid://bdtratsoye84"]
+[gd_resource type="Resource" script_class="EfeitoMana" load_steps=4 format=3 uid="uid://bdtratsoye84"]
 
 [ext_resource type="Script" path="res://resources/efeitos/efeito_mana.gd" id="1_buejy"]
+[ext_resource type="Texture2D" uid="uid://b62uo7tm7cg6n" path="res://gui/hud_icons.png" id="2_oal4o"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bqfxq"]
+atlas = ExtResource("2_oal4o")
+region = Rect2(112, 0, 16, 16)
 
 [resource]
 script = ExtResource("1_buejy")
 fator_rec = 2
 desc_efeito_primario = "Recupera 2 de Mana."
 desc_efeito_secundario = ""
+ui_sprite = SubResource("AtlasTexture_bqfxq")
+temporario = false
+ui_dica = 2

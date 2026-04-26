@@ -1,9 +1,17 @@
-[gd_resource type="Resource" script_class="EfeitoCura" load_steps=2 format=3 uid="uid://b0qkoel5nl3oa"]
+[gd_resource type="Resource" script_class="EfeitoCura" load_steps=4 format=3 uid="uid://b0qkoel5nl3oa"]
 
 [ext_resource type="Script" path="res://resources/efeitos/efeito_cura.gd" id="1_2u3c1"]
+[ext_resource type="Texture2D" uid="uid://b62uo7tm7cg6n" path="res://gui/hud_icons.png" id="2_5pfjw"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ngfc5"]
+atlas = ExtResource("2_5pfjw")
+region = Rect2(0, 0, 16, 16)
 
 [resource]
 script = ExtResource("1_2u3c1")
 fator_cura = 2
 desc_efeito_primario = "Cura 2 corações."
 desc_efeito_secundario = ""
+ui_sprite = SubResource("AtlasTexture_ngfc5")
+temporario = false
+ui_dica = 2
