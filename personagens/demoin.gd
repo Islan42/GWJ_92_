@@ -10,15 +10,15 @@ signal morreu(being : Area2D)
 @onready var colisao : CollisionShape2D = $CollisionShape2D
 @onready var timer_atack : Timer = $TimerAtack
 @onready var zona_de_atencao : Area2D = $ZonaDeAtencao
-@onready var colisao_zdatk : CollisionShape2D = $ZonaDeAtaque/ColisaoZDAtk
-@onready var zona_de_ataque : Area2D = $ZonaDeAtaque
 @onready var raycast : RayCast2D = $RayCast2D
+@onready var atack_raycast : RayCast2D = $AtackRaycast
 
 var direcoes : Array[Vector2] = [Vector2(-64,0), Vector2(0,-64), Vector2(64,0), Vector2(0,64)]
 
 var alvo_localizado : bool = false
 var alvo : Heroi
 var ataque_1 : bool = true
+var is_atack_cd : bool = false
 var is_atacando : bool = false
 var is_andando : bool = false
 var posicao_alvo : Vector2
@@ -29,10 +29,8 @@ func _ready():
 	posicao_alvo = position
 
 func _process(delta):
-	zona_de_ataque.position = direcao_olhar
-	
 	localizar_alvo()
-	#atacar()
+	atacar()
 	andar(delta)
 	animar()
 
@@ -48,10 +46,10 @@ func localizar_alvo():
 				var velha_distancia = alvo.global_position.distance_squared_to(global_position)
 				
 				if nova_distancia <= velha_distancia:
-					#print(nova_distancia, ":", global_position, "=>", nova_posicao)
 					is_andando = true
 					posicao_alvo = nova_posicao
 					direcao_olhar = direcao
+					atack_raycast.target_position = direcao
 					break
 
 func andar(delta):
@@ -59,21 +57,16 @@ func andar(delta):
 		position = position.move_toward(posicao_alvo, 64 * velocidade * delta)
 		if position.is_equal_approx(posicao_alvo):
 			is_andando = false
-func atacar(area):
-	if not is_atacando:
+func atacar():
+	if not is_atack_cd and atack_raycast.is_colliding():
 		is_atacando = true
-		colisao_zdatk.disabled = true
+		is_atack_cd = true
 		timer_atack.start(3)
 		
-		if area.has_method("tomar_dano"):
-			area.tomar_dano(1)
+		var heroi : Heroi = atack_raycast.get_collider()
+		heroi.tomar_dano(1)
 		
-		if ataque_1:
-			#animacao.play("ataque_1_frente")
-			ataque_1 = false
-		else:
-			#animacao.play("ataque_2_frente")
-			ataque_1 = true
+		ataque_1 = not ataque_1
 
 func animar():
 	var animation_name = ""
@@ -108,14 +101,12 @@ func tomar_dano(forca : int):
 		call_deferred("queue_free")
 
 func _on_timer_atack_timeout():
-	is_atacando = false
-	colisao_zdatk.disabled = false
+	is_atack_cd = false
 
 func _on_zona_de_atencao_area_entered(area):
 	if area is Heroi:
 		alvo = area
 		alvo_localizado = true
-		#print("Vou pega-lo", alvo)
 
 func _on_zona_de_atencao_area_exited(area):
 	if area is Heroi:
@@ -123,6 +114,6 @@ func _on_zona_de_atencao_area_exited(area):
 		alvo_localizado = false
 		print("Dxa qto", alvo)
 
-func _on_zona_de_ataque_area_entered(area):
-	if area is Heroi:
-		atacar(area)
+func _on_animated_sprite_2d_animation_finished():
+	if animacao.animation.contains("ataque"):
+		is_atacando = false

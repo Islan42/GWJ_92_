@@ -260,9 +260,7 @@ shape = SubResource("RectangleShape2D_lojdw")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(4, 4)
 sprite_frames = SubResource("SpriteFrames_su20a")
-animation = &"ataque_1_lado"
-frame = 3
-frame_progress = 1.0
+animation = &"ataque_1_costas"
 
 [node name="TimerAtack" type="Timer" parent="."]
 one_shot = true
@@ -283,7 +281,11 @@ collision_layer = 8
 [node name="ColisaoZDAtk" type="CollisionShape2D" parent="ZonaDeAtaque"]
 shape = SubResource("RectangleShape2D_qyona")
 
+[node name="AtackRaycast" type="RayCast2D" parent="."]
+target_position = Vector2(0, 64)
+collide_with_areas = true
+
+[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
 [connection signal="timeout" from="TimerAtack" to="." method="_on_timer_atack_timeout"]
 [connection signal="area_entered" from="ZonaDeAtencao" to="." method="_on_zona_de_atencao_area_entered"]
 [connection signal="area_exited" from="ZonaDeAtencao" to="." method="_on_zona_de_atencao_area_exited"]
-[connection signal="area_entered" from="ZonaDeAtaque" to="." method="_on_zona_de_ataque_area_entered"]

@@ -140,4 +140,5 @@ position = Vector2(-32, 288)
 [node name="SpawnTimer" type="Timer" parent="."]
 autostart = true
 
+[connection signal="child_entered_tree" from="Inimigos" to="." method="_on_inimigos_child_entered_tree"]
 [connection signal="timeout" from="SpawnTimer" to="." method="_on_spawn_timer_timeout"]

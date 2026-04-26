@@ -39,3 +39,10 @@ func _on_spawn_timer_timeout():
 	if %Inimigos.get_children().size() < 1:
 		instanciar_inimigo.emit(%Inimigos, enemy_spawn.global_position)
 		timer.wait_time = randf_range(5,15)
+
+
+func _on_inimigos_child_entered_tree(node):
+	if node is Demoin:
+		node.morreu.connect(func(being : Area2D):
+			inimigo_morreu.emit(being)
+		)
