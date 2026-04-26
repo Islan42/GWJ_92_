@@ -8,7 +8,7 @@
 [ext_resource type="Resource" uid="uid://dem3bi85i6hdl" path="res://resources/ingredientes/orangine.tres" id="4_x3nul"]
 [ext_resource type="Resource" uid="uid://jpnehi30qb83" path="res://resources/ingredientes/random.tres" id="5_kdlbx"]
 [ext_resource type="Resource" uid="uid://cyrvob02u6jks" path="res://resources/ingredientes/purplezite.tres" id="6_5xywo"]
-[ext_resource type="PackedScene" uid="uid://la0sdc8brfy6" path="res://objetos/ingredientes/inseto.tscn" id="8_tnxsj"]
+[ext_resource type="PackedScene" uid="uid://la0sdc8brfy6" path="res://personagens/red_jane.tscn" id="8_tnxsj"]
 
 [node name="Level1" type="Node2D"]
 script = ExtResource("1_hibqt")

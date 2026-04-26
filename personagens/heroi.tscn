@@ -646,7 +646,7 @@ collide_with_areas = true
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(4, 4)
 sprite_frames = SubResource("SpriteFrames_r34li")
-animation = &"ataque_lado"
+animation = &"normal_idle_lado"
 
 [node name="Camera2D" type="Camera2D" parent="."]
 visible = false

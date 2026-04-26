@@ -59,3 +59,16 @@ func _on_level_chamar_proxima_fase():
 	next_level.instanciar_fruta.connect(_on_level_instanciar_fruta)
 	next_level.instanciar_pocao.connect(_on_level_instanciar_pocao)
 	next_level.inimigo_morreu.connect(_on_level_inimigo_morreu)
+
+
+func _on_heroi_morreu():
+	#game_data.reset_pontuacao()
+	get_tree().paused = true
+	%GameOver.visible = true
+
+
+func _on_game_over_game_restart():
+	heroi.reset()
+	game_data.reset_pontuacao()
+	get_tree().paused = false
+	get_tree().reload_current_scene()

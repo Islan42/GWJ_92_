@@ -1,10 +1,8 @@
 extends Area2D
 class_name Heroi
 
-#@export var velocidade : float = 4
-#@export var hp : int = 5
-#@export var mana : int = 0
-#@export var ataque : int = 1
+signal morreu
+
 @export var atributos : AtributosPersonagem
 
 @onready var animacao : AnimatedSprite2D = $AnimatedSprite2D
@@ -23,6 +21,8 @@ var objeto_carregado : Object
 var pressao_andar : float = 0
 var keep_momentum : bool = false
 
+var atributos_duplicate : AtributosPersonagem
+
 func _ready():
 	position = Vector2(32,32)
 	posicao_alvo = position
@@ -30,6 +30,7 @@ func _ready():
 	raycast.target_position = Vector2.RIGHT * 64
 	raycast_car.target_position = Vector2.RIGHT * 64
 	colisao_area_ataque.disabled = true
+	atributos_duplicate = atributos.duplicate()
 	#animacao.play("normal_idle_frente")
 
 func _process(delta):
@@ -40,6 +41,9 @@ func _process(delta):
 		position = position.move_toward(posicao_alvo, 64 * atributos.velocidade_movimento * delta)
 		keep_momentum = true
 	animar()
+
+func reset():
+	atributos.reset(atributos_duplicate)
 
 func calcular_acao():
 	raycast.force_raycast_update()
@@ -171,6 +175,8 @@ func largar_item():
 
 func tomar_dano(forca : int):
 	atributos.curar(-1 * forca)
+	if atributos.vida == 0:
+		morreu.emit()
 	#print(atributos.vida)
 
 func curar(valor:int):

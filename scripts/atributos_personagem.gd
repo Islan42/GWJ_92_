@@ -25,3 +25,11 @@ func ganhar_velocidade(valor : int):
 func ganhar_forca(valor : int):
 	forca = clamp(forca + valor, 0, 10)
 	alterar_atributos.emit()
+
+func reset(atributos : AtributosPersonagem):
+	vida = atributos.vida
+	vida_maxima = atributos.vida_maxima
+	forca = atributos.forca
+	mana = atributos.mana
+	mana_maxima = atributos.mana_maxima
+	velocidade_movimento = atributos.velocidade_movimento

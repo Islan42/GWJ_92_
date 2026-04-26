@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://cp23dd58dux8o"]
+[gd_scene load_steps=7 format=3 uid="uid://cp23dd58dux8o"]
 
 [ext_resource type="PackedScene" uid="uid://3r307sg2foex" path="res://personagens/heroi.tscn" id="1_3igls"]
 [ext_resource type="Script" path="res://main.gd" id="1_i610v"]
 [ext_resource type="Resource" uid="uid://co1ctbolnasw7" path="res://resources/game_data/general_game_data.tres" id="2_nrqwu"]
 [ext_resource type="PackedScene" uid="uid://legmva8eq8w7" path="res://gui/interface_principal.tscn" id="3_hpmyl"]
 [ext_resource type="PackedScene" uid="uid://yg2fwbwxll8w" path="res://levels/level_0.tscn" id="5_rnn7m"]
+[ext_resource type="PackedScene" uid="uid://b46t4qqq2fnlv" path="res://gui/game_over.tscn" id="6_k03mq"]
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_i610v")
@@ -21,8 +22,14 @@ unique_name_in_owner = true
 
 [node name="Level_0" parent="MapaAtual" instance=ExtResource("5_rnn7m")]
 
+[node name="GameOver" parent="." instance=ExtResource("6_k03mq")]
+unique_name_in_owner = true
+visible = false
+
+[connection signal="morreu" from="Heroi" to="." method="_on_heroi_morreu"]
 [connection signal="chamar_mensageiro" from="MapaAtual/Level_0" to="." method="_on_level_chamar_mensageiro"]
 [connection signal="chamar_proxima_fase" from="MapaAtual/Level_0" to="." method="_on_level_chamar_proxima_fase"]
 [connection signal="inimigo_morreu" from="MapaAtual/Level_0" to="." method="_on_level_inimigo_morreu"]
 [connection signal="instanciar_fruta" from="MapaAtual/Level_0" to="." method="_on_level_instanciar_fruta"]
 [connection signal="instanciar_pocao" from="MapaAtual/Level_0" to="." method="_on_level_instanciar_pocao"]
+[connection signal="game_restart" from="GameOver" to="." method="_on_game_over_game_restart"]
