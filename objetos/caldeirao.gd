@@ -30,6 +30,7 @@ func add_ingrediente(ingrediente : Ingrediente_Res):
 		lista_ingredientes.append(ingrediente)
 		#print(lista_ingredientes)
 		ui_caldeirao.adicionar_item(ingrediente)
+		ui_caldeirao.visible = true
 		checar_ingredientes()
 		preparar_pocao()
 
@@ -60,6 +61,7 @@ func esvaziar_caldeirao():
 		item.call_deferred("queue_free")
 	lista_ingredientes = []
 	ui_caldeirao.esvaziar_ui()
+	ui_caldeirao.visible = false
 
 func _on_tempo_cozimento_timeout():
 	if proxima_pocao != null:
