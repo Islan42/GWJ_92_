@@ -8,6 +8,7 @@ const INSETO = preload("res://objetos/ingredientes/insetoide.tscn")
 const POCAO = preload("res://objetos/pocoes/pocao.tscn")
 const LEVEL0 = preload("res://levels/level_0.tscn")
 const LEVEL1 = preload("res://levels/level_1.tscn")
+const DEMOIN = preload("res://personagens/demoin.tscn")
 
 @export var game_data : GameData
 
@@ -47,6 +48,10 @@ func _on_level_chamar_mensageiro(new_buffer : Array[String]):
 	interface.mensageiro.reset_buffer()
 	interface.mensageiro.add_buffer(new_buffer)
 
+func _on_level_instanciar_inimigo(parent : Node2D, posicao : Vector2):
+	var new_inimigo : Demoin = DEMOIN.instantiate()
+	parent.add_child(new_inimigo)
+	new_inimigo.global_position = posicao
 
 func _on_level_chamar_proxima_fase():
 	var next_level = LEVEL1.instantiate()
@@ -58,6 +63,7 @@ func _on_level_chamar_proxima_fase():
 	
 	next_level.instanciar_fruta.connect(_on_level_instanciar_fruta)
 	next_level.instanciar_pocao.connect(_on_level_instanciar_pocao)
+	next_level.instanciar_inimigo.connect(_on_level_instanciar_inimigo)
 	next_level.inimigo_morreu.connect(_on_level_inimigo_morreu)
 
 

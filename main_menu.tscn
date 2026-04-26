@@ -1,8 +1,9 @@
-[gd_scene load_steps=12 format=3 uid="uid://myddl1gjcbp"]
+[gd_scene load_steps=13 format=3 uid="uid://myddl1gjcbp"]
 
 [ext_resource type="Texture2D" uid="uid://bsgon0ptj85r2" path="res://gui/main_title.png" id="1_i166e"]
 [ext_resource type="Texture2D" uid="uid://2sppf1hw55fq" path="res://gui/buttons/new_game_button.png" id="1_ljgm2"]
 [ext_resource type="Script" path="res://main_menu.gd" id="1_rlcjy"]
+[ext_resource type="AudioStream" uid="uid://d2830x5tcv2eq" path="res://sfx/atack.wav" id="4_iun8y"]
 
 [sub_resource type="Animation" id="Animation_gi38x"]
 length = 0.001
@@ -142,4 +143,9 @@ texture_hover = SubResource("AtlasTexture_22mwh")
 texture_focused = SubResource("AtlasTexture_t4gco")
 stretch_mode = 5
 
+[node name="SlashASP" type="AudioStreamPlayer2D" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("4_iun8y")
+
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Buttons/new_game_button" to="." method="_on_new_game_button_pressed"]
+[connection signal="finished" from="SlashASP" to="." method="_on_slash_asp_finished"]
