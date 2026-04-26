@@ -36,8 +36,13 @@ func on_caldeirao_instanciar_pocao(pocao, posicao):
 
 
 func _on_spawn_timer_timeout():
-	if %Inimigos.get_children().size() < 1:
-		instanciar_inimigo.emit(%Inimigos, enemy_spawn.global_position)
+	if %Inimigos.get_children().size() < 3:
+		var direcoes = [Vector2(-1,0), Vector2(-1,-1), Vector2(0,-1), Vector2(1,-1), Vector2(1,0), Vector2(1,1), Vector2(0,1), Vector2(-1,1)]
+		var direcao : Vector2 = direcoes.pick_random().normalized() * 64 
+		print(direcao)
+		var posicao : Vector2 = enemy_spawn.global_position + direcao
+		print(posicao)
+		instanciar_inimigo.emit(%Inimigos, posicao)
 		timer.wait_time = randf_range(5,15)
 
 
