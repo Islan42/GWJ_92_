@@ -34,6 +34,7 @@ func _process(delta):
 	localizar_alvo()
 	#atacar()
 	andar(delta)
+	animar()
 
 func localizar_alvo():
 	if alvo_localizado and not is_andando:
@@ -68,11 +69,37 @@ func atacar(area):
 			area.tomar_dano(1)
 		
 		if ataque_1:
-			animacao.play("ataque_1_frente")
+			#animacao.play("ataque_1_frente")
 			ataque_1 = false
 		else:
-			animacao.play("ataque_2_frente")
+			#animacao.play("ataque_2_frente")
 			ataque_1 = true
+
+func animar():
+	var animation_name = ""
+	animacao.flip_h = false
+	
+	if is_atacando:
+		if ataque_1:
+			animation_name = "ataque_1"
+		else:
+			animation_name = "ataque_2"
+	else:
+		animation_name = "idle"
+	
+	match direcao_olhar:
+		Vector2(-64,0):
+			animation_name += "_lado"
+			animacao.flip_h = true
+		Vector2(0,-64):
+			animation_name += "_costas"
+		Vector2(64,0):
+			animation_name += "_lado"
+			animacao.flip_h = false
+		Vector2(0,64):
+			animation_name += "_frente"
+	if animacao.sprite_frames.has_animation(animation_name):
+		animacao.play(animation_name)
 
 func tomar_dano(forca : int):
 	hp -= forca

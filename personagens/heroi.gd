@@ -155,7 +155,7 @@ func animar():
 		Vector2(-1,0):
 			nome_animacao += "lado"
 			animacao.flip_h = true
-	if animacao.animation != nome_animacao:
+	if animacao.animation != nome_animacao and animacao.sprite_frames.has_animation(nome_animacao):
 		animacao.play(nome_animacao)
 
 func largar_item():

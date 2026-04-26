@@ -260,7 +260,7 @@ shape = SubResource("RectangleShape2D_lojdw")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(4, 4)
 sprite_frames = SubResource("SpriteFrames_su20a")
-animation = &"ataque_1_costas"
+animation = &"ataque_1_lado"
 frame = 3
 frame_progress = 1.0
 
