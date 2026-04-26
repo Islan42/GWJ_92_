@@ -31,6 +31,7 @@ func add_ingrediente(ingrediente : Ingrediente_Res):
 		#print(lista_ingredientes)
 		ui_caldeirao.adicionar_item(ingrediente)
 		ui_caldeirao.visible = true
+		%AddItemASP.play()
 		checar_ingredientes()
 		preparar_pocao()
 
@@ -74,4 +75,5 @@ func _on_tempo_cozimento_timeout():
 		barra_progresso.value = 0
 		barra_progresso.visible = false
 		proxima_pocao = null
+		%PotionReadyASP.play()
 		esvaziar_caldeirao()

@@ -1,9 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://bt338mse2bg1x"]
+[gd_scene load_steps=9 format=3 uid="uid://bt338mse2bg1x"]
 
 [ext_resource type="Script" path="res://objetos/caldeirao.gd" id="1_euj65"]
 [ext_resource type="Texture2D" uid="uid://bscfmthsb4xqk" path="res://objetos/caldeirao.png" id="1_ie7xy"]
 [ext_resource type="Resource" uid="uid://dmw4mp5lwvhyq" path="res://resources/pocoes/lista_padrao_pocoes.tres" id="2_85h0k"]
 [ext_resource type="Resource" uid="uid://co1ctbolnasw7" path="res://resources/game_data/general_game_data.tres" id="3_g6ejv"]
+[ext_resource type="AudioStream" uid="uid://btx2ujudcy2hf" path="res://sfx/drop.wav" id="6_vpcv1"]
+[ext_resource type="AudioStream" uid="uid://87tva6c4x3wc" path="res://sfx/potion_ready.wav" id="7_6gq3p"]
 [ext_resource type="PackedScene" uid="uid://c8ne2okcrn75t" path="res://gui/ui_caldeirao_.tscn" id="8_g6v76"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_eau5n"]
@@ -38,5 +40,13 @@ show_percentage = false
 visible = false
 offset_top = -64.0
 offset_bottom = -64.0
+
+[node name="AddItemASP" type="AudioStreamPlayer2D" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("6_vpcv1")
+
+[node name="PotionReadyASP" type="AudioStreamPlayer2D" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("7_6gq3p")
 
 [connection signal="timeout" from="TempoCozimento" to="." method="_on_tempo_cozimento_timeout"]

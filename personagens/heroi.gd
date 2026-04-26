@@ -52,6 +52,7 @@ func calcular_acao():
 			if not carregando_objeto:
 				agindo = true
 				colisao_area_ataque.disabled = false
+				%AtackASP.play()
 			elif objeto is Caldeirao and not objeto.caldeirao_cheio(): #TALVEZ Verificar se é ingrediente
 				if objeto_carregado is Ingrediente:
 					objeto.add_ingrediente(objeto_carregado.ingrediente)
@@ -70,6 +71,7 @@ func calcular_acao():
 					objeto_carregado = null
 			elif objeto_carregado is Pocao:
 				objeto_carregado.ativar_efeito_primario(self)
+				%DrinkASP.play()
 				
 				remove_child(objeto_carregado)
 				carregando_objeto = false

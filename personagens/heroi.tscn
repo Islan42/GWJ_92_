@@ -1,8 +1,10 @@
-[gd_scene load_steps=83 format=3 uid="uid://3r307sg2foex"]
+[gd_scene load_steps=85 format=3 uid="uid://3r307sg2foex"]
 
 [ext_resource type="Script" path="res://personagens/heroi.gd" id="1_y532s"]
 [ext_resource type="Texture2D" uid="uid://csx1j4dnxhhx4" path="res://personagens/heroi.png" id="2_j8bx2"]
 [ext_resource type="Resource" uid="uid://dkv7ud181bx7v" path="res://resources/atributos/atributos_heroi.tres" id="2_olnlq"]
+[ext_resource type="AudioStream" uid="uid://d2830x5tcv2eq" path="res://sfx/atack.wav" id="4_koj0f"]
+[ext_resource type="AudioStream" uid="uid://d0bsy3ibua4k2" path="res://sfx/drink.wav" id="5_f5wc5"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vfhvs"]
 size = Vector2(64, 64)
@@ -660,6 +662,14 @@ collision_mask = 6
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AreaAtaque"]
 position = Vector2(0, -64)
 shape = SubResource("RectangleShape2D_akag1")
+
+[node name="AtackASP" type="AudioStreamPlayer2D" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("4_koj0f")
+
+[node name="DrinkASP" type="AudioStreamPlayer2D" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("5_f5wc5")
 
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
 [connection signal="area_entered" from="AreaAtaque" to="." method="_on_area_ataque_area_entered"]
