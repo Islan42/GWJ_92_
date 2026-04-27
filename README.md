@@ -1,0 +1,24 @@
+Apresentação
+
+Olá, seja bem vindo a este repositório. "Diego the magic goblin" foi um projeto desenvolvido por mim durante a Godot Wild Jam de número 92. Nesta ocasião o tema da Jam foi "Brewing". Você pode conferir uma versão do jogo na plataforma itch io através do link: https://islanv99.itch.io/diego-the-magical-goblin 
+
+Desafios
+
+Bom, entender completamente o tema por si só já foi um desafio. A palavra "Brewing" é comumente associada ao processo de fabricação de cervejas, mas esse conceito pode ser extrapolado para o processo de preparação de café ou chá e, antigamente, de poções ou medicamentos. Além disso, conversando com outros participantes "descobrimos" a expressão popular "a storm is brewing" que significa que uma tempestade está se formando ou um clima propício a "problemas/brigas".
+Dá pra ver que o tema dessa edição foi bem "limitante". Não que isso seja um problema, mas foi desafiador. Parte do evento da Jam é também avaliar o trabalho de outros participantes (após o período de entrega), e eu pude ver que os colegas todos se saíram muito bem e fizeram obras incríveis.
+Eu decidi abordar o tema de uma forma mais comum e "tradicional", pensando mais na colheita de ingredientes e preparação de poções. Eu me inspirei bastante em Pokémon para a movimentação em grid e em Zelda (que na minha cabeça também tinha esse sistema, mas depois descobri que não kkkk). 
+Na verdade eu já tinha interesse em desenvolver algo nesse estilo, então aproveitei o tema e usei como experiência.
+
+Outro desafio, para mim, foi o fato de nunca ter participado de uma Jam e nunca antes sequer ter feito um jogo "completo" sozinho e do início ao fim. Eu já havia seguido alguns tutoriais mas foram poucos e conhecia apenas por alto o processo e fluxo de desenvolvimento de um jogo.
+Foi um desafio "descobrir" os processos, os métodos, as arquiteturas. Fui fazendo as coisas mais no feeling, no freestyle, do meu jeito (enquanto pedia ajuda ao Gemini para as melhores práticas e aproaches em determinadas situações).
+Falando em freestyle, como eu estava fazendo tudo sozinho, também eu que fiz a pixelart do jogo. Bem no começo eu não entendia NAAADAAA de arte e fui fazendo as coisas do jeito que me pareciam "melhores", mas saiu tudo muito feio. Então passei um tempo assistindo a alguns bons vídeos sobre pixel arte e aprendi muito e as artes finais acabaram ficando menos feias do que as anteriores ;)
+
+E o tempo? O tempo talvez tenha sido o mais cruel dos desafios, ao mesmo tempo que também foi essencial para a conclusão do projeto. A Godot Wild Jam é um evento de 10 dias de produção, o que, na minha opinião, não é nem curto de mais que impeça o desenvolvimento de boas ideias, nem longo de mais que faça perder o interesse pela conclusão do projeto.
+Bom, eu tive muitos problemas com o tempo. Trabalho em tempo integral e faço faculdade à noite, meu único tempo realmente livre eram os fins de semana. É verdade que eu roubei o tempo da faculdade (não assisti a nenhuma aula nesse período), mas não tinha muito o que roubar. Eu era o único responsável por todo o desenvolvimento de código, de arte, aprendizado, etc, então tive sim bastante problema com o tempo.
+Inclusive eu não consegui entregar o projeto a tempo, tive que abrir um chamado junto aos coordenadores do evento para poder fazer a entrega 15 minutos depois do prazo (pelas regras, isso era possível até no máximo 1 hora). Apenas no último dia, no domingo, eu finalizei a arquitetura "base" do jogo e só então eu poderia realmente produzir algo concreto (criar inimigos, fases, ingredientes, poções, etc). Mas faltavam apenas 2 horas pra entregar.
+Ainda decidi de última hora criar um tutorial com um sistema de mensagens que exibia instruções na tela, etc. O resultado é que eu fiz uma entrega que estava funcional mas era péssima, pobre de elementos, e mecânicas fragmentadas demais e isso, inclusive, se refletiu no meu resultado na JAM (148º de 189). Mas isso foi o de menos, o que me deixou mais pá das ideias foi o fato de não ter entregue o que eu desejava, o que estava no "escopo".
+Então eu decidi, por fora da Jam, trabalhar mais uma semaninha no projeto, corrigindo alguns bugs e adicionando elementos básicos que faltaram: SFX, Main Menu, HUD, UI Receitas, Mensageiro, ajustes de mecânica, etc. Foram pelo menos 18 pontos abordados, de acordo com o meu Trello.
+
+Aprendizados
+
+Futuro
