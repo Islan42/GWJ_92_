@@ -1,6 +1,12 @@
 Apresentação
 
-Olá, seja bem vindo a este repositório. "Diego the magic goblin" foi um projeto desenvolvido por mim durante a Godot Wild Jam de número 92. Nesta ocasião o tema da Jam foi "Brewing". Você pode conferir uma versão do jogo na plataforma itch io através do link: https://islanv99.itch.io/diego-the-magical-goblin 
+Olá, seja bem vindo a este repositório. "Diego the magic goblin" foi um projeto desenvolvido por mim durante a Godot Wild Jam de número 92. Nesta ocasião o tema da Jam foi "Brewing". Você pode conferir uma versão do jogo na plataforma itch io através do link: https://islanv99.itch.io/diego-the-magical-goblin
+
+Hello and welcome to this repository. "Diego the magic goblin" is a project developed by me for the Godot Wild Jam #92. In this edition, the theme was "Brewing". Check out the demo at https://islanv99.itch.io/diego-the-magical-goblin
+
+Challenges
+
+Well, decifering the theme itself turned out to be a considerable challenge, specially for me, a non-native speaker. Well, the word "Brewing" is commonly used to refer at the process of making beer. Others contestants enlighted me on other meanings such as the process of making coffe, tea and potions. There is also an expression "A storm is brewing" used when a storm is forming. For this jam, i decided to go the obvious way, making a game about brewing potions.
 
 Desafios
 
