@@ -36,7 +36,7 @@ Desafios na programação? Também. É verdade que eu programo há pelo menos 5 
 
 Aprendizados
 
-Aprendi MUUUITO durante essa Jam, não apenas conhecimentos técnicos como também softskills, como lidar com prasos, escopo, como organizar o trabalho, etc. 
+Aprendi MUUUITO durante essa Jam, não apenas conhecimentos técnicos como também softskills, como lidar com prazos, escopo, como organizar o trabalho, etc. 
 
 No quesito programação, eu gostaria de citar o sistema de movimentação em grid, que nunca foi tão popular, mas hoje é ainda menos. Além de ser mais dificíl de implementar, é mais propenso a erros e bugs, e mais difícil de deixar uma boa experiência de usuário. Acho que não fiz um excelente trabalho nessa parte, mas pelo esforço que foi aplicado acho que o resultado foi satisfatório. Outro aprendizado que vale a penas destacar foi o uso de Resources que eu não conhecia e foram muito importantes pra facilitar algumas coisas, embora tenha me causado muitos problemas. Um aprendizado geral que vou levar é o de planejar bem e com antecedência as estruturas dos objetos e Resources, pois mudanças repentinas podem causar problemas de dependência no editor.
 
@@ -55,15 +55,19 @@ Como eu disse antes, embora eu tivesse um projeto inicial, todo o processo de de
 Enfim, esses foram alguns dos meus pensamentos durante essas duas semanas de desenvolvimento do projeto. Gostaria de agradecer aqui a todos que investiram um tempo em avaliar e dar feedbacks construtivos.
 
 
-Hello and welcome to this repository. "Diego the magic goblin" is a project developed by me for the Godot Wild Jam #92. In this edition, the theme was "Brewing". Check out the demo at https://islanv99.itch.io/diego-the-magical-goblin
 
-Well, the word "Brewing" is commonly used to refer at the process of making beer. Others contestants enlighted me on other meanings such as the process of making coffe, tea and potions. There is also an expression "A storm is brewing" used when a storm is forming. For this jam, i decided to go the obvious way, making a game about collectin fruits and brewing potions with it.
+Hello and welcome!
+"Diego the Magical Goblin" is a project I developed for the Godot Wild Jam #92. The theme for this edition was "Brewing". You can check out the demo here: islanv99.itch.io/diego-the-magical-goblin
+The word "Brewing" is commonly associated with making beer, but other contestants enlightened me on other meanings, such as making coffee, tea, or potions. There is also the expression "a storm is brewing," used when a storm (or trouble) is forming. For this jam, I decided to take the traditional route: a game about collecting ingredients and brewing potions.
 
-Developing this game was very challenging to me. Not only it was my first jam, it also was the first game i finished.
+Developing this game was a huge challenge. Not only was it my first jam, but it was also the first game I ever finished from start to finish. I had to learn many new concepts in both programming and pixel art. I faced several bugs related to resource and script dependencies, which cost me a significant amount of time to fix.
 
-Future
+Future Plans
 
-Beeing honest, since the begining I just didn't see a future for this project. Even though, I wanted to make an exercise of thinking what changes I would do if I planned to continuing the project.
-- Focus on exploration. At first i just didn't know exactly what mechanics i would implement. I just started coding, hoping everything would turn out fine. But after playtesting a lot i understood that exploration and collecting ingredients and making strange potions would be a perfect fit for this game vibe.
-- Improve Combat System. I understand that this is probably the major problem of this game. I am sorry, i just wasn't cabable of doing better. In the future i would improve my abilities in order to improve the combat system.
-- Grid movement. I'm not sure if grid movement would fit a exploration game, it also find it a little cumbersome to implement and mantain, so maybe i would change it to normal movement.
+To be honest, I didn't see a long-term future for this project from the start. However, as an exercise, here is what I would change if I were to continue developing it:
+
+- Focus on Exploration: At first, I didn't know exactly which mechanics to implement; I just started coding and hoped for the best. After a lot of playtesting, I realized that exploring, collecting ingredients, and making strange potions would be the perfect fit for this game’s vibe.
+
+- Improve the Combat System: This is likely the biggest issue in the game. I am sorry, i just wasn't cabable of doing better. In the future, I plan to improve my skills to create better combat mechanics.
+
+- Grid Movement: I’m not sure if grid-based movement fits an exploration game perfectly. It is also quite cumbersome to implement and maintain, so I might consider switching to free movement.
