@@ -1,4 +1,4 @@
-CHANGELOG
+### CHANGELOG
 
 Added
 - HUD
@@ -10,12 +10,11 @@ Added
 - Some SFX
 - Fixed some bugs
 
-
-Apresentação
+## Português
 
 Olá, seja bem vindo a este repositório. "Diego the magic goblin" foi um projeto desenvolvido por mim durante a Godot Wild Jam de número 92. Nesta ocasião o tema da Jam foi "Brewing". Você pode conferir uma versão do jogo na plataforma itch io através do link: https://islanv99.itch.io/diego-the-magical-goblin
 
-Desafios
+### Desafios
 
 Bom, entender completamente o tema por si só já foi um desafio. A palavra "Brewing" é comumente associada ao processo de fabricação de cervejas, mas esse conceito pode ser extrapolado para o processo de preparação de café ou chá e, antigamente, de poções ou medicamentos. Além disso, conversando com outros participantes "descobrimos" a expressão popular "a storm is brewing" que significa que uma tempestade está se formando ou um clima propício a "problemas/brigas".
 Dá pra ver que o tema dessa edição foi bem "limitante". Não que isso seja um problema, mas foi desafiador. Parte do evento da Jam é também avaliar o trabalho de outros participantes (após o período de entrega), e eu pude ver que os colegas todos se saíram muito bem e fizeram obras incríveis.
@@ -34,7 +33,7 @@ Então eu decidi, por fora da Jam, trabalhar mais uma semaninha no projeto, corr
 
 Desafios na programação? Também. É verdade que eu programo há pelo menos 5 anos, mas meu aprendizado tem sido um pouco indeciso/perdido/torto. Já aprendi, esqueci, e reaprendi várias línguas de programação (Python, JS, C#, PHP e até mesmo a GDScript), já tentei FrontEnd (React, Vue, Tailwind, JSON, etc) e até BackEnd (Node, Laravel, Flask, Django, Docker, SQL, etc). Tudo isso pra dizer que já "andei" por vários cantos, mas que não cheguei realmente a lugar nenhum. E o Godot, junto com GDScript, são ferramentas mais complexas. Não basta saber programar, é preciso entender como usar as ferramentas (nesse caso a Godot Engine) da maneira correta. Enfim, por ser meu primeiro projeto real, enfrentei muitos desafios na programação, desde tentar descobrir a estrutura necessária para construir o que eu queria, até aquela famosa e linda parte na programação em que um bug acontece do nada e você perde horas sem avançar em nada o desenvolvimento. Por exemplo, estava aprendendo a utilizar as Resources que são ferramentas muito úteis para unificar a fonte e o fluxo de dados (DDD) e além dos benefícios, isso me causou MUITOS PROBLEMAS, inclusive quase tive que recomeçar um novo projeto por conta de um erro bobo. Minha "sorte" foi o uso do Git. Falando em perder o projeto, bem no início o meu HD que continha o projeto foi de arrasta (kkkkkk). Novamente a sorte foi o Git.
 
-Aprendizados
+### Aprendizados
 
 Aprendi MUUUITO durante essa Jam, não apenas conhecimentos técnicos como também softskills, como lidar com prazos, escopo, como organizar o trabalho, etc. 
 
@@ -42,32 +41,34 @@ No quesito programação, eu gostaria de citar o sistema de movimentação em gr
 
 Em relação a arte, aprendi a usar o sistema de cor HSV para criar sombreamentos, isso me ajudou muito. Embora eu não possa dizer de maneira nenhuma que fiz um bom trabalho, acredito que no decorrer melhorei bastante e até cheguei a sentir um certo "orgulho", ou satisfação, de algumas coisas que fiz.
 
-Futuro
+### Futuro
 
 Para ser honesto, desde o início eu nunca vi nenhum futuro promissor para esse projeto. O tema da Jam foi, na minha opinião, bem enclausurante e ficou bem difícil pensar em algo que pudesse ser apreciado por muitas pessoas. Dito isso, gostaria de realizar um exercício mental de ignorar tudo isso e pensar nas mudanças e melhorias que eu faria se fosse desenvolver esse projeto de maneira comercial.
 
 Como eu disse antes, embora eu tivesse um projeto inicial, todo o processo de desenvolvimento foi feito de maneira muito "freestyle", eu ia fazendo o que dava na telha e o que eu achava que seria bom ou melhor. Durante todo o processo de desenvolvimento eu fui percebendo as coias que acabaram fazendo mais sentido e as que estragaram ou dificultaram a gameplay. Inclusive, nas minhas pesquisas sobre desenvolvimento de jogos, topei com o conceito de Core Game Loop e percebi que o meu estava muito bagunçado. Por isso separei alguns tópicos para comentar, que podem melhorar a experiência do jogo:
 
-- Foco em exploração. Foi algo que eu não prestei muita atenção enquanto desenvolvia o projeto, mas olhando agora vejo que deveria ser o foco desde o início. Explorar um ambiente novo a procura de novos ingredientes e receitas, passar um tempo colhendo e preparando as receitas, acho que encaixa muito bem com a proposta "calma" de brewing.
-- Sistema de combate. Esse foi um elemente que ficou muito precário no projeto, muito por causa da minha inabilidade e falta de conhecimento. Até mesmo agora, não faço ideia de como implementar algo realmente bom. Para uma Jam talvez não seja um grande problema, mas em um projeto real, seria com certeza um gerador de fracasso. Enfim, o sistema de combate precisaria ser melhorado ou RETIRADO COMPLETAMENTE do jogo, pois do jeito que está atrapalha e muito a experiência do usuário.
-- Movimentação em Grid. Precisamos falar sobre o grande elefante na sala, a "Movimentação em Grid". Um dos principais pontos a melhorar, segundo alguns feedbacks que recebi durante as avaliações da Jam, a verdade é que eu só implementei esse tipo de movimentação por curiosidade e como experiência para outros projetos, mas não sei se esse tipo de movimentação seria apropriado para um jogo de exploração. Talvez seja. Mas de qualquer maneira, é necessário dar uma melhorada, para não espantar os futuros jogadores.
+- **Foco em exploração**. Foi algo que eu não prestei muita atenção enquanto desenvolvia o projeto, mas olhando agora vejo que deveria ser o foco desde o início. Explorar um ambiente novo a procura de novos ingredientes e receitas, passar um tempo colhendo e preparando as receitas, acho que encaixa muito bem com a proposta "calma" de brewing.
+- **Sistema de combate**. Esse foi um elemente que ficou muito precário no projeto, muito por causa da minha inabilidade e falta de conhecimento. Até mesmo agora, não faço ideia de como implementar algo realmente bom. Para uma Jam talvez não seja um grande problema, mas em um projeto real, seria com certeza um gerador de fracasso. Enfim, o sistema de combate precisaria ser melhorado ou RETIRADO COMPLETAMENTE do jogo, pois do jeito que está atrapalha e muito a experiência do usuário.
+- **Movimentação em Grid**. Precisamos falar sobre o grande elefante na sala, a "Movimentação em Grid". Um dos principais pontos a melhorar, segundo alguns feedbacks que recebi durante as avaliações da Jam, a verdade é que eu só implementei esse tipo de movimentação por curiosidade e como experiência para outros projetos, mas não sei se esse tipo de movimentação seria apropriado para um jogo de exploração. Talvez seja. Mas de qualquer maneira, é necessário dar uma melhorada, para não espantar os futuros jogadores.
 
 Enfim, esses foram alguns dos meus pensamentos durante essas duas semanas de desenvolvimento do projeto. Gostaria de agradecer aqui a todos que investiram um tempo em avaliar e dar feedbacks construtivos.
 
-
+## English
 
 Hello and welcome!
+
 "Diego the Magical Goblin" is a project I developed for the Godot Wild Jam #92. The theme for this edition was "Brewing". You can check out the demo here: islanv99.itch.io/diego-the-magical-goblin
+
 The word "Brewing" is commonly associated with making beer, but other contestants enlightened me on other meanings, such as making coffee, tea, or potions. There is also the expression "a storm is brewing," used when a storm (or trouble) is forming. For this jam, I decided to take the traditional route: a game about collecting ingredients and brewing potions.
 
 Developing this game was a huge challenge. Not only was it my first jam, but it was also the first game I ever finished from start to finish. I had to learn many new concepts in both programming and pixel art. I faced several bugs related to resource and script dependencies, which cost me a significant amount of time to fix.
 
-Future Plans
+### Future Plans
 
 To be honest, I didn't see a long-term future for this project from the start. However, as an exercise, here is what I would change if I were to continue developing it:
 
-- Focus on Exploration: At first, I didn't know exactly which mechanics to implement; I just started coding and hoped for the best. After a lot of playtesting, I realized that exploring, collecting ingredients, and making strange potions would be the perfect fit for this game’s vibe.
+- **Focus on Exploration:** At first, I didn't know exactly which mechanics to implement; I just started coding and hoped for the best. After a lot of playtesting, I realized that exploring, collecting ingredients, and making strange potions would be the perfect fit for this game’s vibe.
 
-- Improve the Combat System: This is likely the biggest issue in the game. I am sorry, i just wasn't cabable of doing better. In the future, I plan to improve my skills to create better combat mechanics.
+- **Improve the Combat System:** This is likely the biggest issue in the game. I am sorry, i just wasn't cabable of doing better. In the future, I plan to improve my skills to create better combat mechanics.
 
-- Grid Movement: I’m not sure if grid-based movement fits an exploration game perfectly. It is also quite cumbersome to implement and maintain, so I might consider switching to free movement.
+- **Grid Movement:** I’m not sure if grid-based movement fits an exploration game perfectly. It is also quite cumbersome to implement and maintain, so I might consider switching to free movement.
