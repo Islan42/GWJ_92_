@@ -6,7 +6,11 @@ Hello and welcome to this repository. "Diego the magic goblin" is a project deve
 
 Challenges
 
-Well, decifering the theme itself turned out to be a considerable challenge, specially for me, a non-native speaker. Well, the word "Brewing" is commonly used to refer at the process of making beer. Others contestants enlighted me on other meanings such as the process of making coffe, tea and potions. There is also an expression "A storm is brewing" used when a storm is forming. For this jam, i decided to go the obvious way, making a game about brewing potions.
+Well, decifering the theme itself turned out to be a considerable challenge, specially for me, a non-native speaker. Well, the word "Brewing" is commonly used to refer at the process of making beer. Others contestants enlighted me on other meanings such as the process of making coffe, tea and potions. There is also an expression "A storm is brewing" used when a storm is forming. For this jam, i decided to go the obvious way, making a game about collectin fruits and brewing potions with it.
+
+Future
+
+Beeing honest, since the begining I just didn't see a future for this project. Even though, I wanted to make an exercise of thinking what changes I would do if I planned to continuing the project.
 
 Desafios
 
